@@ -21,5 +21,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Local Netlify folder
-.netlify
+
+.eslintrc.cjs
+vite.config.js
