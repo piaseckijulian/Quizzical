@@ -1,0 +1,22 @@
+.welcome--wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.welcome--heading {
+	font-family: 'Karla', sans-serif;
+	font-size: 48px;
+	text-align: center;
+	color: #293264;
+}
+
+.welcome--description {
+	font-size: 24px;
+	text-align: center;
+	color: #293264;
+	margin-top: 12px;
+	margin-bottom: 32px;
+}
