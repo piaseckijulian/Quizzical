@@ -58,10 +58,10 @@ export default function Question({
 	});
 
 	return (
-		<div className='question'>
+		<>
 			<h2 className='question--text'>{question}</h2>
-			{answersEl}
+			<div className='answers'>{answersEl}</div>
 			<hr className='line' />
-		</div>
+		</>
 	);
 }

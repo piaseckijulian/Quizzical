@@ -1,0 +1,65 @@
+@media (max-width: 85em) {
+	.answers {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.blob {
+		width: 12rem;
+		height: 12rem;
+	}
+
+	.trivia--blob {
+		width: 10rem;
+		height: 10rem;
+	}
+}
+
+@media (max-width: 55em) {
+	.answers {
+		grid-template-columns: 1fr;
+	}
+
+	.trivia--controls {
+		display: block;
+	}
+
+	.trivia--score {
+		text-align: center;
+		margin-bottom: 1.5rem;
+	}
+
+	.btn {
+		display: block;
+		margin: 0 auto;
+	}
+
+	.question--text {
+		font-size: 3rem;
+	}
+
+	.answers label {
+		font-size: 2rem;
+	}
+
+	.blob {
+		width: 10rem;
+		height: 10rem;
+	}
+}
+
+@media (max-width: 30em) {
+	.question--text {
+		line-height: 1.2;
+	}
+	.blob {
+		width: 7rem;
+		height: 7rem;
+	}
+}
+
+@media (max-width: 28em) {
+	.blob--trivia {
+		width: 4.5rem;
+		height: 4.5rem;
+	}
+}
