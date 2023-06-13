@@ -55,11 +55,19 @@
 		width: 7rem;
 		height: 7rem;
 	}
+	.trivia--wrapper {
+		max-width: none;
+	}
 }
 
 @media (max-width: 28em) {
 	.blob--trivia {
 		width: 4.5rem;
 		height: 4.5rem;
+	}
+
+	.trivia--wrapper {
+		padding: 5rem 1rem 1rem 2rem;
+		text-align: center;
 	}
 }
