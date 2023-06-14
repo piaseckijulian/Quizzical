@@ -1,4 +1,4 @@
-@media (max-width: 85em) {
+@media (max-width: 82em) {
 	.answers {
 		grid-template-columns: repeat(2, 1fr);
 	}
@@ -14,7 +14,7 @@
 	}
 }
 
-@media (max-width: 55em) {
+@media (max-width: 40em) {
 	.answers {
 		grid-template-columns: 1fr;
 	}
@@ -51,23 +51,19 @@
 	.question--text {
 		line-height: 1.2;
 	}
+
 	.blob {
 		width: 7rem;
 		height: 7rem;
 	}
+
 	.trivia--wrapper {
 		max-width: none;
-	}
-}
-
-@media (max-width: 28em) {
-	.blob--trivia {
-		width: 4.5rem;
-		height: 4.5rem;
-	}
-
-	.trivia--wrapper {
 		padding: 5rem 1rem 1rem 2rem;
 		text-align: center;
+	}
+
+	.blob--trivia {
+		display: none;
 	}
 }
