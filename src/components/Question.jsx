@@ -13,14 +13,19 @@ export default function Question({
 
 	function handleChange(e) {
 		const { value } = e.target;
-		setFormData(prevFormData => {
-			const updatedFormData = [...prevFormData];
-			updatedFormData[id] = {
-				...updatedFormData[id],
-				userAnswer: value
-			};
-			return updatedFormData;
-		});
+
+		setFormData(
+			formData.map(data => {
+				if (id === data.id) {
+					return {
+						...data,
+						userAnswer: value
+					};
+				} else {
+					return data;
+				}
+			})
+		);
 	}
 
 	const ids = [nanoid(), nanoid(), nanoid(), nanoid()];

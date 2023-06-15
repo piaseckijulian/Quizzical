@@ -27,7 +27,8 @@ export default function Trivia() {
 				]
 			}));
 
-			const formDataArray = results.map(result => ({
+			const formDataArray = results.map((result, index) => ({
+				id: index,
 				correctAnswer: result.correctAnswer,
 				userAnswer: ''
 			}));
