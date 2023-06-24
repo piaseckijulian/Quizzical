@@ -28,7 +28,7 @@ export default function Question({
 		);
 	}
 
-	const ids = [nanoid(), nanoid(), nanoid(), nanoid()];
+	const answerID = [nanoid(), nanoid(), nanoid(), nanoid()];
 
 	const answersEl = answers.map((answer, index) => {
 		const isCorrectAnswer = answer === formData[id].correctAnswer;
@@ -49,13 +49,13 @@ export default function Question({
 				<input
 					type='radio'
 					name={name}
-					id={ids[index]}
+					id={answerID[index]}
 					value={answer}
 					onChange={e => handleChange(e)}
 					checked={formData[id].userAnswer === answer}
 					disabled={showResults}
 				/>
-				<label htmlFor={ids[index]} className={answerClass}>
+				<label htmlFor={answerID[index]} className={answerClass}>
 					{answer}
 				</label>
 			</React.Fragment>
@@ -63,10 +63,10 @@ export default function Question({
 	});
 
 	return (
-		<>
+		<div className='question'>
 			<h2 className='question--text'>{question}</h2>
 			<div className='answers'>{answersEl}</div>
 			<hr className='line' />
-		</>
+		</div>
 	);
 }

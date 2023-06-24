@@ -8,13 +8,25 @@
 		height: 12rem;
 	}
 
-	.trivia--blob {
+	.blob--trivia {
 		width: 10rem;
 		height: 10rem;
 	}
 }
 
-@media (max-width: 40em) {
+@media (max-width: 60em) {
+	.blob--trivia {
+		width: 7rem;
+		height: 7rem;
+	}
+
+	.btn {
+		font-size: 1.6rem;
+		padding: 2rem 4rem;
+	}
+}
+
+@media (max-width: 46em) {
 	.answers {
 		grid-template-columns: 1fr;
 	}
@@ -31,6 +43,7 @@
 	.btn {
 		display: block;
 		margin: 0 auto;
+		font-size: 1.4rem;
 	}
 
 	.question--text {

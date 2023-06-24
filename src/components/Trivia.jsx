@@ -1,8 +1,6 @@
-import { React, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Question from './Question';
-import he from 'he';
-
-const { decode } = he;
+import { decode } from 'he';
 
 export default function Trivia() {
 	const [trivia, setTrivia] = useState([]);
