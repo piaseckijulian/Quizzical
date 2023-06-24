@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default function Welcome({ handleGame }) {
+export default function Welcome() {
 	return (
 		<div className='welcome--wrapper'>
 			<div className='blob--left'>
@@ -33,10 +34,11 @@ export default function Welcome({ handleGame }) {
 			</div>
 
 			<h1 className='welcome--heading'>Quizzical</h1>
-			<p className='welcome--description'>Some description if needed</p>
-			<button className='btn' onClick={handleGame}>
-				Start quiz
-			</button>
+			<p className='welcome--description'>Test your knowledge!</p>
+
+			<Link to='/trivia'>
+				<button className='btn'>Start quiz</button>
+			</Link>
 		</div>
 	);
 }

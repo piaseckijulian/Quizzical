@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import Welcome from './Welcome';
-import Trivia from './Trivia';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Welcome from '../routes/Welcome';
+import Trivia from '../routes/Trivia';
 
 export default function App() {
-	const [gameStatus, setGameStatus] = useState(false);
-
-	function handleGame() {
-		setGameStatus(true);
-	}
-
-	return <>{gameStatus ? <Trivia /> : <Welcome handleGame={handleGame} />}</>;
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route path='/' element={<Welcome />} />
+				<Route path='/trivia' element={<Trivia />} />
+			</Routes>
+		</BrowserRouter>
+	);
 }

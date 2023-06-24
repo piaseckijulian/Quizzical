@@ -13,12 +13,13 @@ body {
 	color: #293264;
 	background-color: #f5f7fb;
 	position: relative;
+	min-height: 100vh;
 }
 
-#root {
+.container {
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
 	flex-direction: column;
 }
 
@@ -35,8 +36,8 @@ body {
 }
 
 .blob {
-	width: 25rem;
-	height: 25rem;
+	width: 21rem;
+	height: 21rem;
 }
 
 .btn {
@@ -52,7 +53,6 @@ body {
 	transition: all 0.3s ease;
 }
 
-.btn:hover,
-.btn:focus {
+.btn:hover {
 	background-color: #717cb1;
 }

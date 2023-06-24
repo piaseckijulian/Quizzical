@@ -1,11 +1,11 @@
-@media (max-width: 82em) {
+@media (max-width: 87em) {
 	.answers {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
 	.blob {
-		width: 12rem;
-		height: 12rem;
+		width: 14rem;
+		height: 14rem;
 	}
 
 	.blob--trivia {
@@ -26,7 +26,7 @@
 	}
 }
 
-@media (max-width: 46em) {
+@media (max-width: 45em) {
 	.answers {
 		grid-template-columns: 1fr;
 	}
@@ -48,6 +48,8 @@
 
 	.question--text {
 		font-size: 3rem;
+		text-wrap: balance;
+		text-align: center;
 	}
 
 	.answers label {
@@ -71,8 +73,8 @@
 	}
 
 	.trivia--wrapper {
-		max-width: none;
-		padding: 5rem 1rem 1rem 2rem;
+		max-width: 48rem;
+		padding: 5rem 1rem 1rem 1rem;
 		text-align: center;
 	}
 
