@@ -31,13 +31,22 @@ export default function Trivia() {
 				userAnswer: ''
 			}));
 
+			const shuffle = array => {
+				for (let i = array.length - 1; i >= 0; i--) {
+					const randomIndex = Math.floor(Math.random() * (i + 1));
+					array.push(array[randomIndex]);
+					array.splice(randomIndex, 1);
+				}
+				return array;
+			};
+
 			const answersArray = results.map(result =>
-				[
+				shuffle([
 					result.correctAnswer,
 					result.incorrectAnswers[0],
 					result.incorrectAnswers[1],
 					result.incorrectAnswers[2]
-				].sort((a, b) => 0.5 - Math.random())
+				])
 			);
 
 			setTrivia(results);
