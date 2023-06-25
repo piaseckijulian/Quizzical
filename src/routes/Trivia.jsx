@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Question from '../components/Question';
 import { decode } from 'he';
 
 export default function Trivia() {
+	const isMounted = useRef(false);
 	const [trivia, setTrivia] = useState([]);
 	const [formData, setFormData] = useState([]);
 	const [answers, setAnswers] = useState([]);
 	const [showResults, setShowResults] = useState(false);
+	const [checkAnswersBtn, setCheckAnswersBtn] = useState(true);
 	const [score, setScore] = useState(0);
 
 	async function fetchData() {
@@ -57,6 +59,16 @@ export default function Trivia() {
 		fetchData();
 	}, []);
 
+	useEffect(() => {
+		if (isMounted.current) {
+			if (formData.every(data => data.userAnswer !== '')) {
+				setCheckAnswersBtn(false);
+			}
+		} else {
+			isMounted.current = true;
+		}
+	}, [formData]);
+
 	const triviaElements = trivia.map((trivia, index) => (
 		<Question
 			question={trivia.question}
@@ -65,6 +77,7 @@ export default function Trivia() {
 			setFormData={setFormData}
 			formData={formData}
 			showResults={showResults}
+			setCheckAnswersBtn={setCheckAnswersBtn}
 			key={index}
 		/>
 	));
@@ -82,11 +95,8 @@ export default function Trivia() {
 	async function newGame() {
 		fetchData();
 		setShowResults(false);
+		setCheckAnswersBtn(true);
 		setScore(0);
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth'
-		});
 	}
 
 	return (
@@ -130,7 +140,8 @@ export default function Trivia() {
 						</p>
 					)}
 					<button
-						className='btn'
+						className={`btn ${checkAnswersBtn && 'disabled--btn'}`}
+						disabled={checkAnswersBtn}
 						onClick={showResults ? newGame : checkAnswers}>
 						{showResults ? 'Play again' : 'Check answers'}
 					</button>

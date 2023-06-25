@@ -12,7 +12,7 @@
 
 .line {
 	background-color: #dbdef0;
-	height: 3px;
+	height: 0.3rem;
 	border: none;
 	margin-bottom: 3rem;
 }
@@ -48,7 +48,6 @@
 	cursor: pointer;
 	transition: all 0.3s ease;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
@@ -62,19 +61,33 @@
 	border: 3px solid #d6dbf5;
 }
 
+.correct,
+.incorrect {
+	border: none !important;
+}
+
 .correct {
 	background-color: #94d7a2 !important;
-	border: none !important;
+}
+
+.incorrect,
+.other {
+	opacity: 0.5 !important;
 }
 
 .incorrect {
 	background-color: #f8bcbc !important;
-	border: none !important;
-	opacity: 0.5 !important;
 }
 
-.other {
-	opacity: 0.5 !important;
+.other:hover {
+	background-color: transparent !important;
+}
+
+.disabled--btn {
+	opacity: 0.5;
+}
+.disabled--btn:hover {
+	background-color: #4d5b9e;
 }
 
 .trivia--controls {
