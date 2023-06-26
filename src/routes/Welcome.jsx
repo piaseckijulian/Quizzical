@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Welcome = ({ setSelectedCategory }) => {
+const Welcome = ({ setSelectedCategory, selectedCategory }) => {
 	const [categories, setCategories] = useState([]);
 
 	const fetchCategories = async () => {
@@ -13,6 +13,8 @@ const Welcome = ({ setSelectedCategory }) => {
 
 		setCategories(data.trivia_categories);
 	};
+
+	const handleSelect = e => setSelectedCategory(parseInt(e.target.value));
 
 	useEffect(() => {
 		fetchCategories();
@@ -60,7 +62,8 @@ const Welcome = ({ setSelectedCategory }) => {
 
 			<select
 				className='welcome--category'
-				onChange={e => setSelectedCategory(e.target.value)}>
+				value={selectedCategory}
+				onChange={e => handleSelect(e)}>
 				{categoriesEl}
 			</select>
 

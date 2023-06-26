@@ -11,7 +11,12 @@ const App = () => {
 			<Routes>
 				<Route
 					path='/'
-					element={<Welcome setSelectedCategory={setSelectedCategory} />}
+					element={
+						<Welcome
+							setSelectedCategory={setSelectedCategory}
+							selectedCategory={selectedCategory}
+						/>
+					}
 				/>
 				<Route
 					path='/trivia'
