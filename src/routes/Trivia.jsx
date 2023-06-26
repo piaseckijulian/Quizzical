@@ -140,7 +140,7 @@ const Trivia = ({ selectedCategory }) => {
 						</p>
 					)}
 
-					{showResults && (
+					{!showResults && (
 						<button
 							className='btn'
 							disabled={disabledCheckAnswersBtn}
@@ -149,13 +149,15 @@ const Trivia = ({ selectedCategory }) => {
 						</button>
 					)}
 
-					{!showResults && (
-						<button
-							className='btn'
-							disabled={disabledCheckAnswersBtn}
-							onClick={newGame}>
-							Play again
-						</button>
+					{showResults && (
+						<Link to='/'>
+							<button
+								className='btn'
+								disabled={disabledCheckAnswersBtn}
+								onClick={newGame}>
+								Play again
+							</button>
+						</Link>
 					)}
 				</div>
 			</div>
