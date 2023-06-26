@@ -1,6 +1,6 @@
 # Quizzical
 
-## 🏆Trivia Quiz App
+## ⭐Trivia Quiz App
 
 **Live DEMO: [julian-quizzical.netlify.app](https://julian-quizzical.netlify.app)**
 
