@@ -100,13 +100,13 @@ const Trivia = ({ selectedCategory }) => {
 			<div className='trivia--wrapper'>
 				<div className='blob--left'>
 					<img
-						src='../images/blob-left.svg'
+						src='/images/blob-left.svg'
 						alt=''
-						className='blob trivia--blob'
+						className='blob blob--trivia'
 					/>
 				</div>
 				<div className='blob--right'>
-					<img src='../images/blob-right.svg' alt='' className='blob' />
+					<img src='/images/blob-right.svg' alt='' className='blob' />
 				</div>
 
 				{QuestionsEl}

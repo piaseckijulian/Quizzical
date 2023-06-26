@@ -29,14 +29,10 @@ const Welcome = ({ setSelectedCategory, selectedCategory }) => {
 	return (
 		<div className='welcome--wrapper'>
 			<div className='blob--left'>
-				<img
-					src='../images/blob-left.svg'
-					alt=''
-					className='blob trivia--blob'
-				/>
+				<img src='/images/blob-left.svg' alt='' className='blob' />
 			</div>
 			<div className='blob--right'>
-				<img src='../images/blob-right.svg' alt='' className='blob' />
+				<img src='/images/blob-right.svg' alt='' className='blob' />
 			</div>
 
 			<h1 className='welcome--heading'>Quizzical</h1>

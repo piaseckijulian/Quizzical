@@ -21,7 +21,7 @@ dist-ssr
 *.sln
 *.sw?
 
-public
+_redirects
 
 .eslintrc.cjs
 vite.config.js

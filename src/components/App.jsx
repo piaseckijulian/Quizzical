@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Welcome from '../routes/Welcome';
-import Trivia from '../routes/Trivia';
+
+const Trivia = lazy(() => import('../routes/Trivia'));
+const Welcome = lazy(() => import('../routes/Welcome'));
 
 const App = () => {
 	const [selectedCategory, setSelectedCategory] = useState(0);
