@@ -12,8 +12,12 @@ body {
 	font-family: 'Inter', sans-serif;
 	color: #293264;
 	background-color: #f5f7fb;
-	position: relative;
 	min-height: 100vh;
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
 }
 
 .container {
@@ -21,6 +25,8 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+
+	position: relative;
 }
 
 .blob--left {

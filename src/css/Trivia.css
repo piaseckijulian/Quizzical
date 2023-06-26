@@ -1,6 +1,7 @@
 .trivia--wrapper {
 	padding: 10rem 7.5rem 2rem 7.5rem;
 	max-width: 130rem;
+	min-height: 100vh;
 }
 
 .question--text {
