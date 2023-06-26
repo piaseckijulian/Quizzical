@@ -1,18 +1,19 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Question from '../components/Question';
 import { decode } from 'he';
 
-export default function Trivia() {
+const Trivia = ({ selectedCategory }) => {
 	const isMounted = useRef(false);
 	const [trivia, setTrivia] = useState([]);
 	const [formData, setFormData] = useState([]);
 	const [answers, setAnswers] = useState([]);
 	const [showResults, setShowResults] = useState(false);
-	const [checkAnswersBtn, setCheckAnswersBtn] = useState(true);
+	const [disabledCheckAnswersBtn, setDisabledCheckAnswersBtn] = useState(true);
 	const [score, setScore] = useState(0);
 
-	async function fetchData() {
-		const url = 'https://opentdb.com/api.php?amount=5&type=multiple';
+	const fetchData = async () => {
+		const url = `https://opentdb.com/api.php?amount=5&type=multiple&category=${selectedCategory}`;
 		const res = await fetch(url);
 		const data = await res.json();
 
@@ -53,7 +54,7 @@ export default function Trivia() {
 		setTrivia(results);
 		setFormData(formDataArray);
 		setAnswers(answersArray);
-	}
+	};
 
 	useEffect(() => {
 		fetchData();
@@ -62,27 +63,26 @@ export default function Trivia() {
 	useEffect(() => {
 		if (isMounted.current) {
 			if (formData.every(data => data.userAnswer !== '')) {
-				setCheckAnswersBtn(false);
+				setDisabledCheckAnswersBtn(false);
 			}
 		} else {
 			isMounted.current = true;
 		}
 	}, [formData]);
 
-	const triviaElements = trivia.map((trivia, index) => (
+	const QuestionsEl = trivia.map((trivia, index) => (
 		<Question
+			key={index}
+			id={index}
 			question={trivia.question}
 			answers={answers[index]}
-			id={index}
-			setFormData={setFormData}
 			formData={formData}
+			setFormData={setFormData}
 			showResults={showResults}
-			setCheckAnswersBtn={setCheckAnswersBtn}
-			key={index}
 		/>
 	));
 
-	function checkAnswers() {
+	const checkAnswers = () => {
 		setShowResults(true);
 
 		formData.map(data => {
@@ -90,14 +90,14 @@ export default function Trivia() {
 				setScore(prevScore => prevScore + 1);
 			}
 		});
-	}
+	};
 
-	async function newGame() {
+	const newGame = () => {
 		fetchData();
 		setShowResults(false);
-		setCheckAnswersBtn(true);
+		setDisabledCheckAnswersBtn(true);
 		setScore(0);
-	}
+	};
 
 	return (
 		<div className='container'>
@@ -131,7 +131,7 @@ export default function Trivia() {
 					</svg>
 				</div>
 
-				{triviaElements}
+				{QuestionsEl}
 
 				<div className='trivia--controls'>
 					{showResults && (
@@ -139,14 +139,28 @@ export default function Trivia() {
 							You scored {score}/5 correct answers
 						</p>
 					)}
-					<button
-						className={`btn ${checkAnswersBtn && 'disabled--btn'}`}
-						disabled={checkAnswersBtn}
-						onClick={showResults ? newGame : checkAnswers}>
-						{showResults ? 'Play again' : 'Check answers'}
-					</button>
+
+					{showResults && (
+						<button
+							className='btn'
+							disabled={disabledCheckAnswersBtn}
+							onClick={checkAnswers}>
+							Check answers
+						</button>
+					)}
+
+					{!showResults && (
+						<button
+							className='btn'
+							disabled={disabledCheckAnswersBtn}
+							onClick={newGame}>
+							Play again
+						</button>
+					)}
 				</div>
 			</div>
 		</div>
 	);
-}
+};
+
+export default Trivia;

@@ -24,9 +24,13 @@
 		font-size: 1.6rem;
 		padding: 2rem 4rem;
 	}
+
+	.welcome--category {
+		max-width: 40rem;
+	}
 }
 
-@media (max-width: 45em) {
+@media (max-width: 46em) {
 	.answers {
 		grid-template-columns: 1fr;
 	}
@@ -43,7 +47,7 @@
 	.btn {
 		display: block;
 		margin: 0 auto;
-		font-size: 1.4rem;
+		font-size: 1.6rem;
 	}
 
 	.question--text {
@@ -59,6 +63,11 @@
 	.blob {
 		width: 10rem;
 		height: 10rem;
+	}
+
+	.welcome--category {
+		font-size: 1.6rem;
+		max-width: 30rem;
 	}
 }
 
@@ -80,5 +89,10 @@
 
 	.blob--trivia {
 		display: none;
+	}
+
+	.welcome--category {
+		font-size: 1.4rem;
+		max-width: 20rem;
 	}
 }

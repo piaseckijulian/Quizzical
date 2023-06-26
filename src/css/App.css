@@ -13,6 +13,7 @@ body {
 	color: #293264;
 	background-color: #f5f7fb;
 	min-height: 100vh;
+	position: relative;
 }
 
 a {
@@ -25,8 +26,6 @@ a {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-
-	position: relative;
 }
 
 .blob--left {
@@ -61,4 +60,11 @@ a {
 
 .btn:hover {
 	background-color: #717cb1;
+}
+
+.btn:disabled {
+	opacity: 0.5;
+}
+.btn:disabled:hover {
+	background-color: #4d5b9e;
 }

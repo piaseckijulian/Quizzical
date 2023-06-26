@@ -84,13 +84,6 @@
 	background-color: transparent !important;
 }
 
-.disabled--btn {
-	opacity: 0.5;
-}
-.disabled--btn:hover {
-	background-color: #4d5b9e;
-}
-
 .trivia--controls {
 	display: flex;
 	justify-content: center;
