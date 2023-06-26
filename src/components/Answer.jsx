@@ -4,7 +4,7 @@ const Answer = ({
 	answer,
 	formData,
 	setFormData,
-	formDataId,
+	questionId,
 	showResults,
 	name
 }) => {
@@ -13,7 +13,7 @@ const Answer = ({
 	const handleChange = e =>
 		setFormData(
 			formData.map(data =>
-				formDataId === data.id
+				questionId === data.id
 					? {
 							...data,
 							userAnswer: e.target.value
@@ -22,13 +22,13 @@ const Answer = ({
 			)
 		);
 
-	const isCorrectAnswer = answer === formData[formDataId].correctAnswer;
+	const isCorrectAnswer = answer === formData[questionId].correctAnswer;
 
 	let answerClass = '';
 	if (showResults) {
 		if (isCorrectAnswer) {
 			answerClass = 'correct';
-		} else if (!isCorrectAnswer && formData[formDataId].userAnswer === answer) {
+		} else if (!isCorrectAnswer && formData[questionId].userAnswer === answer) {
 			answerClass = 'incorrect';
 		} else {
 			answerClass = 'other';
@@ -43,7 +43,7 @@ const Answer = ({
 				id={id}
 				value={answer}
 				onChange={e => handleChange(e)}
-				checked={formData[formDataId].userAnswer === answer}
+				checked={formData[questionId].userAnswer === answer}
 				disabled={showResults}
 			/>
 			<label htmlFor={id} className={answerClass}>

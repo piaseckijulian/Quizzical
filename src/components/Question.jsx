@@ -4,7 +4,7 @@ import Answer from '../components/Answer';
 const Question = ({
 	question,
 	answers,
-	id,
+	questionId,
 	setFormData,
 	formData,
 	showResults
@@ -17,7 +17,7 @@ const Question = ({
 			answer={answer}
 			formData={formData}
 			setFormData={setFormData}
-			formDataId={id}
+			questionId={questionId}
 			showResults={showResults}
 			name={name}
 		/>
