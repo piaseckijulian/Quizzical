@@ -21,9 +21,7 @@ dist-ssr
 *.sln
 *.sw?
 
-_redirects
-robots.txt
-
 .eslintrc.cjs
 vite.config.js
 .netlify
+_redirects
