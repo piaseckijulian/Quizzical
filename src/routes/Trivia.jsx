@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import useUpdateEffect from '../hooks/useUpdateEffect';
-import { Link } from 'react-router-dom';
+import Loading from '../components/Loading';
 import Question from '../components/Question';
+import { Link } from 'react-router-dom';
 import { decode } from 'he';
 
 const Trivia = ({ selectedCategory }) => {
+	const [isLoading, setIsLoading] = useState(true);
 	const [trivia, setTrivia] = useState([]);
 	const [formData, setFormData] = useState([]);
 	const [answers, setAnswers] = useState([]);
@@ -54,6 +56,7 @@ const Trivia = ({ selectedCategory }) => {
 		setTrivia(results);
 		setFormData(formDataArray);
 		setAnswers(answersArray);
+		setIsLoading(false);
 	};
 
 	useEffect(() => {
@@ -109,35 +112,39 @@ const Trivia = ({ selectedCategory }) => {
 					<img src='/images/blob-right.svg' alt='' className='blob' />
 				</div>
 
-				{QuestionsEl}
+				{isLoading ? (
+					<Loading />
+				) : (
+					<>
+						{QuestionsEl}
 
-				<div className='trivia--controls'>
-					{showResults && (
-						<p className='trivia--score'>
-							You scored {score}/5 correct answers
-						</p>
-					)}
+						<div className='trivia--controls'>
+							{showResults && (
+								<p className='trivia--score'>
+									You scored {score}/5 correct answers
+								</p>
+							)}
 
-					{!showResults && (
-						<button
-							className='btn'
-							disabled={disabledCheckAnswersBtn}
-							onClick={checkAnswers}>
-							Check answers
-						</button>
-					)}
-
-					{showResults && (
-						<Link to='/'>
-							<button
-								className='btn'
-								disabled={disabledCheckAnswersBtn}
-								onClick={newGame}>
-								Play again
-							</button>
-						</Link>
-					)}
-				</div>
+							{showResults ? (
+								<Link to='/'>
+									<button
+										className='btn'
+										disabled={disabledCheckAnswersBtn}
+										onClick={newGame}>
+										Play again
+									</button>
+								</Link>
+							) : (
+								<button
+									className='btn'
+									disabled={disabledCheckAnswersBtn}
+									onClick={checkAnswers}>
+									Check answers
+								</button>
+							)}
+						</div>
+					</>
+				)}
 			</div>
 		</div>
 	);

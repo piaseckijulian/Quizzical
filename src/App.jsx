@@ -1,15 +1,15 @@
 import React, { useState, lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-const Welcome = lazy(() => import('../routes/Welcome'));
-const Trivia = lazy(() => import('../routes/Trivia'));
+const Welcome = lazy(() => import('./routes/Welcome'));
+const Trivia = lazy(() => import('./routes/Trivia'));
 
 const App = () => {
 	const [selectedCategory, setSelectedCategory] = useState(0);
 
 	return (
 		<Suspense>
-			<BrowserRouter>
+			<Router>
 				<Routes>
 					<Route
 						path='/'
@@ -25,7 +25,7 @@ const App = () => {
 						element={<Trivia selectedCategory={selectedCategory} />}
 					/>
 				</Routes>
-			</BrowserRouter>
+			</Router>
 		</Suspense>
 	);
 };
