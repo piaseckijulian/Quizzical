@@ -95,21 +95,22 @@ const Trivia = ({ selectedCategory }) => {
 		fetchData();
 		setShowResults(false);
 		setDisabledCheckAnswersBtn(true);
+		setIsLoading(true);
 		setScore(0);
 	};
 
 	return (
-		<div className='container'>
-			<div className='trivia--wrapper'>
-				<div className='blob--left'>
+		<div className="container">
+			<div className="trivia--wrapper">
+				<div className="blob--left">
 					<img
-						src='/images/blob-left.svg'
-						alt=''
-						className='blob blob--trivia'
+						src="/images/blob-left.svg"
+						alt=""
+						className="blob blob--trivia"
 					/>
 				</div>
-				<div className='blob--right'>
-					<img src='/images/blob-right.svg' alt='' className='blob' />
+				<div className="blob--right">
+					<img src="/images/blob-right.svg" alt="" className="blob" />
 				</div>
 
 				{isLoading ? (
@@ -118,25 +119,20 @@ const Trivia = ({ selectedCategory }) => {
 					<>
 						{QuestionsEl}
 
-						<div className='trivia--controls'>
+						<div className="trivia--controls">
 							{showResults && (
-								<p className='trivia--score'>
+								<p className="trivia--score">
 									You scored {score}/5 correct answers
 								</p>
 							)}
 
 							{showResults ? (
-								<Link to='/'>
-									<button
-										className='btn'
-										disabled={disabledCheckAnswersBtn}
-										onClick={newGame}>
-										Play again
-									</button>
+								<Link to="/" className="btn" onClick={newGame}>
+									Play again
 								</Link>
 							) : (
 								<button
-									className='btn'
+									className="btn"
 									disabled={disabledCheckAnswersBtn}
 									onClick={checkAnswers}>
 									Check answers

@@ -12,7 +12,7 @@ const App = () => {
 			<Router>
 				<Routes>
 					<Route
-						path='/'
+						path="/"
 						element={
 							<Welcome
 								setSelectedCategory={setSelectedCategory}
@@ -21,7 +21,7 @@ const App = () => {
 						}
 					/>
 					<Route
-						path='/trivia'
+						path="/trivia"
 						element={<Trivia selectedCategory={selectedCategory} />}
 					/>
 				</Routes>

@@ -38,7 +38,7 @@ const Answer = ({
 	return (
 		<>
 			<input
-				type='radio'
+				type="radio"
 				name={name}
 				id={id}
 				value={answer}

@@ -27,26 +27,26 @@ const Welcome = ({ setSelectedCategory, selectedCategory }) => {
 	));
 
 	return (
-		<div className='welcome--wrapper'>
-			<div className='blob--left'>
-				<img src='/images/blob-left.svg' alt='' className='blob' />
+		<div className="welcome--wrapper">
+			<div className="blob--left">
+				<img src="/images/blob-left.svg" alt="" className="blob" />
 			</div>
-			<div className='blob--right'>
-				<img src='/images/blob-right.svg' alt='' className='blob' />
+			<div className="blob--right">
+				<img src="/images/blob-right.svg" alt="" className="blob" />
 			</div>
 
-			<h1 className='welcome--heading'>Quizzical</h1>
-			<p className='welcome--description'>Test your knowledge!</p>
+			<h1 className="welcome--heading">Quizzical</h1>
+			<p className="welcome--description">Test your knowledge!</p>
 
 			<select
-				className='welcome--category'
+				className="welcome--category"
 				value={selectedCategory}
 				onChange={e => handleSelect(e)}>
 				{categoriesEl}
 			</select>
 
-			<Link to='/trivia'>
-				<button className='btn'>Start quiz</button>
+			<Link to="/trivia" className="btn">
+				Start quiz
 			</Link>
 		</div>
 	);
