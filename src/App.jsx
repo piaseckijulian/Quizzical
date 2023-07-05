@@ -1,5 +1,10 @@
 import React, { useState, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	Navigate
+} from 'react-router-dom';
 
 const Welcome = lazy(() => import('./routes/Welcome'));
 const Trivia = lazy(() => import('./routes/Trivia'));
@@ -24,6 +29,7 @@ const App = () => {
 						path="/trivia"
 						element={<Trivia selectedCategory={selectedCategory} />}
 					/>
+					<Route path="*" element={<Navigate to="/" />} />
 				</Routes>
 			</Router>
 		</Suspense>
