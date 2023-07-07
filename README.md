@@ -16,7 +16,12 @@ Test your knowledge with our engaging Trivia Quiz App. Challenge yourself with a
 
 # About
 
-I built this project with **[React](https://www.npmjs.com/package/react)**, **[React Router DOM](https://www.npmjs.com/package/react-router-dom)**, **[React Loader Spinner](https://www.npmjs.com/package/react-loader-spinner)** & **[he](https://www.npmjs.com/package/he)**
+I built this project with
+
+- [Next.js](https://www.npmjs.com/package/next)
+- [Typescript](https://www.npmjs.com/package/typescript)
+- [React Loader Spinner](https://www.npmjs.com/package/react-loader-spinner)
+- [he](https://www.npmjs.com/package/he)
 
 ## API
 
@@ -24,7 +29,7 @@ I used [Open Trivia Database](https://opentdb.com/)
 <br />
 Endpoint: **https://opentdb.com/api.php?amount=5**
 
-# [Live Demo](https://julian-quizzical.netlify.app)
+# [Live Demo](https://julian-quizzical.vercel.app)
 
 # Credits
 

@@ -1,4 +1,8 @@
-import React, { useId } from 'react';
+'use client';
+
+import { ChangeEvent, useId } from 'react';
+
+import { answerProps } from '../types';
 
 const Answer = ({
 	answer,
@@ -7,10 +11,10 @@ const Answer = ({
 	questionId,
 	showResults,
 	name
-}) => {
+}: answerProps) => {
 	const id = useId();
 
-	const handleChange = e =>
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
 		setFormData(
 			formData.map(data =>
 				questionId === data.id

@@ -1,8 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+'use client';
 
-const Welcome = ({ setSelectedCategory, selectedCategory }) => {
-	const [categories, setCategories] = useState([]);
+import { ChangeEvent, useEffect, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useCategoryContext } from './contexts/CategoryContextProvider';
+import { categoriesType } from './types';
+
+const Home = () => {
+	const [categories, setCategories]: [categoriesType[], Function] = useState(
+		[]
+	);
+
+	const { selectedCategory, setSelectedCategory } = useCategoryContext();
 
 	const fetchCategories = async () => {
 		const url = 'https://opentdb.com/api_category.php';
@@ -14,7 +23,8 @@ const Welcome = ({ setSelectedCategory, selectedCategory }) => {
 		setCategories(data.trivia_categories);
 	};
 
-	const handleSelect = e => setSelectedCategory(parseInt(e.target.value));
+	const handleSelect = (e: ChangeEvent<HTMLSelectElement>) =>
+		setSelectedCategory(parseInt(e.target.value));
 
 	useEffect(() => {
 		fetchCategories();
@@ -29,10 +39,22 @@ const Welcome = ({ setSelectedCategory, selectedCategory }) => {
 	return (
 		<div className="welcome--wrapper">
 			<div className="blob--left">
-				<img src="/images/blob-left.svg" alt="" className="blob" />
+				<Image
+					src="/assets/blob-left.svg"
+					alt=""
+					className="blob"
+					width={210}
+					height={210}
+				/>
 			</div>
 			<div className="blob--right">
-				<img src="/images/blob-right.svg" alt="" className="blob" />
+				<Image
+					src="/assets/blob-right.svg"
+					alt=""
+					className="blob"
+					width={210}
+					height={210}
+				/>
 			</div>
 
 			<h1 className="welcome--heading">Quizzical</h1>
@@ -45,11 +67,11 @@ const Welcome = ({ setSelectedCategory, selectedCategory }) => {
 				{categoriesEl}
 			</select>
 
-			<Link to="/trivia" className="btn">
+			<Link href="/trivia" className="btn">
 				Start quiz
 			</Link>
 		</div>
 	);
 };
 
-export default Welcome;
+export default Home;

@@ -1,25 +1,34 @@
-import React, { useEffect, useState } from 'react';
+'use client';
+
+import { useEffect, useState } from 'react';
 import useUpdateEffect from '../hooks/useUpdateEffect';
 import Loading from '../components/Loading';
-import Question from '../components/Question';
-import { Link } from 'react-router-dom';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { decode } from 'he';
+import { useCategoryContext } from '../contexts/CategoryContextProvider';
+import { formDataType, triviaType, resultsType } from '../types';
+import Question from '../components/Question';
 
-const Trivia = ({ selectedCategory }) => {
+const Trivia = () => {
+	const { selectedCategory } = useCategoryContext();
+
 	const [isLoading, setIsLoading] = useState(true);
-	const [trivia, setTrivia] = useState([]);
-	const [formData, setFormData] = useState([]);
-	const [answers, setAnswers] = useState([]);
+	const [trivia, setTrivia]: [triviaType[], Function] = useState([]);
+	const [formData, setFormData]: [formDataType[], Function] = useState([]);
+	const [allAnswers, setAllAnswers]: [string[][], Function] = useState([]);
 	const [showResults, setShowResults] = useState(false);
 	const [disabledCheckAnswersBtn, setDisabledCheckAnswersBtn] = useState(true);
 	const [score, setScore] = useState(0);
+
+	const router = useRouter();
 
 	const fetchData = async () => {
 		const url = `https://opentdb.com/api.php?amount=5&type=multiple&category=${selectedCategory}`;
 		const res = await fetch(url);
 		const data = await res.json();
 
-		const results = data.results.map(result => ({
+		const results: triviaType[] = data.results.map((result: resultsType) => ({
 			question: decode(result.question),
 			correctAnswer: decode(result.correct_answer),
 			incorrectAnswers: [
@@ -35,7 +44,7 @@ const Trivia = ({ selectedCategory }) => {
 			userAnswer: ''
 		}));
 
-		const shuffle = array => {
+		const shuffle = (array: any[]) => {
 			for (let i = array.length - 1; i >= 0; i--) {
 				const randomIndex = Math.floor(Math.random() * (i + 1));
 				array.push(array[randomIndex]);
@@ -55,7 +64,7 @@ const Trivia = ({ selectedCategory }) => {
 
 		setTrivia(results);
 		setFormData(formDataArray);
-		setAnswers(answersArray);
+		setAllAnswers(answersArray);
 		setIsLoading(false);
 	};
 
@@ -65,16 +74,15 @@ const Trivia = ({ selectedCategory }) => {
 
 	useUpdateEffect(() => {
 		formData.every(data => data.userAnswer !== '') &&
-			setDisabledCheckAnswersBtn(false),
-			[formData];
-	});
+			setDisabledCheckAnswersBtn(false);
+	}, [formData]);
 
 	const QuestionsEl = trivia.map((trivia, index) => (
 		<Question
 			key={index}
 			questionId={index}
 			question={trivia.question}
-			answers={answers[index]}
+			answers={allAnswers[index]}
 			formData={formData}
 			setFormData={setFormData}
 			showResults={showResults}
@@ -97,20 +105,29 @@ const Trivia = ({ selectedCategory }) => {
 		setDisabledCheckAnswersBtn(true);
 		setIsLoading(true);
 		setScore(0);
+		router.push('/');
 	};
 
 	return (
 		<div className="container">
 			<div className="trivia--wrapper">
 				<div className="blob--left">
-					<img
-						src="/images/blob-left.svg"
+					<Image
+						src="/assets/blob-left.svg"
 						alt=""
 						className="blob blob--trivia"
+						width={130}
+						height={130}
 					/>
 				</div>
 				<div className="blob--right">
-					<img src="/images/blob-right.svg" alt="" className="blob" />
+					<Image
+						src="/assets/blob-right.svg"
+						alt=""
+						className="blob"
+						width={210}
+						height={210}
+					/>
 				</div>
 
 				{isLoading ? (
@@ -126,18 +143,12 @@ const Trivia = ({ selectedCategory }) => {
 								</p>
 							)}
 
-							{showResults ? (
-								<Link to="/" className="btn" onClick={newGame}>
-									Play again
-								</Link>
-							) : (
-								<button
-									className="btn"
-									disabled={disabledCheckAnswersBtn}
-									onClick={checkAnswers}>
-									Check answers
-								</button>
-							)}
+							<button
+								className="btn"
+								disabled={disabledCheckAnswersBtn}
+								onClick={showResults ? newGame : checkAnswers}>
+								{showResults ? 'Play again' : 'Check answers'}
+							</button>
 						</div>
 					</>
 				)}

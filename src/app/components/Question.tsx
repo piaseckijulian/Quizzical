@@ -1,5 +1,9 @@
-import React, { useId } from 'react';
-import Answer from '../components/Answer';
+'use client';
+
+import { useId } from 'react';
+import Answer from './Answer';
+
+import { questionProps } from '../types';
 
 const Question = ({
 	question,
@@ -8,7 +12,7 @@ const Question = ({
 	setFormData,
 	formData,
 	showResults
-}) => {
+}: questionProps) => {
 	const name = useId();
 
 	const answersEl = answers.map((answer, index) => (
