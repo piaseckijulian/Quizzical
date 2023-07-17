@@ -7,28 +7,27 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { decode } from 'he';
 import { useCategoryContext } from '../contexts/CategoryContextProvider';
-import { formDataType, triviaType, resultsType } from '../types';
+import { formDataType, quizType, quizInterface } from '../types';
 import Question from '../components/Question';
 
-const Trivia = () => {
+const Quiz = () => {
 	const { selectedCategory } = useCategoryContext();
 
 	const [isLoading, setIsLoading] = useState(true);
-	const [trivia, setTrivia]: [triviaType[], Function] = useState([]);
-	const [formData, setFormData]: [formDataType[], Function] = useState([]);
-	const [allAnswers, setAllAnswers]: [string[][], Function] = useState([]);
+	const [quiz, setquiz] = useState<quizType[]>([]);
+	const [formData, setFormData] = useState<formDataType[]>([]);
+	const [allAnswers, setAllAnswers] = useState<string[][]>([]);
 	const [showResults, setShowResults] = useState(false);
 	const [disabledCheckAnswersBtn, setDisabledCheckAnswersBtn] = useState(true);
 	const [score, setScore] = useState(0);
-
 	const router = useRouter();
 
 	const fetchData = async () => {
 		const url = `https://opentdb.com/api.php?amount=5&type=multiple&category=${selectedCategory}`;
 		const res = await fetch(url);
-		const data = await res.json();
+		const data: quizInterface = await res.json();
 
-		const results: triviaType[] = data.results.map((result: resultsType) => ({
+		const results = data.results.map(result => ({
 			question: decode(result.question),
 			correctAnswer: decode(result.correct_answer),
 			incorrectAnswers: [
@@ -62,7 +61,7 @@ const Trivia = () => {
 			])
 		);
 
-		setTrivia(results);
+		setquiz(results);
 		setFormData(formDataArray);
 		setAllAnswers(answersArray);
 		setIsLoading(false);
@@ -77,11 +76,11 @@ const Trivia = () => {
 			setDisabledCheckAnswersBtn(false);
 	}, [formData]);
 
-	const QuestionsEl = trivia.map((trivia, index) => (
+	const QuestionsEl = quiz.map((quiz, index) => (
 		<Question
 			key={index}
 			questionId={index}
-			question={trivia.question}
+			question={quiz.question}
 			answers={allAnswers[index]}
 			formData={formData}
 			setFormData={setFormData}
@@ -110,12 +109,12 @@ const Trivia = () => {
 
 	return (
 		<div className="container">
-			<div className="trivia--wrapper">
+			<div className="quiz--wrapper">
 				<div className="blob--left">
 					<Image
 						src="/assets/blob-left.svg"
 						alt=""
-						className="blob blob--trivia"
+						className="blob blob--quiz"
 						width={130}
 						height={130}
 					/>
@@ -136,9 +135,9 @@ const Trivia = () => {
 					<>
 						{QuestionsEl}
 
-						<div className="trivia--controls">
+						<div className="quiz--controls">
 							{showResults && (
-								<p className="trivia--score">
+								<p className="quiz--score">
 									You scored {score}/5 correct answers
 								</p>
 							)}
@@ -157,4 +156,4 @@ const Trivia = () => {
 	);
 };
 
-export default Trivia;
+export default Quiz;

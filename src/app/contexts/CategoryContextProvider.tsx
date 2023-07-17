@@ -5,12 +5,12 @@ import { childrenType } from '../types';
 
 interface CategoryContextType {
 	selectedCategory: number;
-	setSelectedCategory: Function;
+	setSelectedCategory: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const CategoryContext = createContext<CategoryContextType>({
 	selectedCategory: 0,
-	setSelectedCategory: Function
+	setSelectedCategory: () => {}
 });
 
 export const CategoryContextProvider = ({ children }: childrenType) => {

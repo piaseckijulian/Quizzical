@@ -8,14 +8,14 @@
 		height: 14rem;
 	}
 
-	.blob--trivia {
+	.blob--quiz {
 		width: 10rem;
 		height: 10rem;
 	}
 }
 
 @media (max-width: 60em) {
-	.blob--trivia {
+	.blob--quiz {
 		width: 7rem;
 		height: 7rem;
 	}
@@ -35,11 +35,11 @@
 		grid-template-columns: 1fr;
 	}
 
-	.trivia--controls {
+	.quiz--controls {
 		display: block;
 	}
 
-	.trivia--score {
+	.quiz--score {
 		text-align: center;
 		margin-bottom: 1.5rem;
 	}
@@ -81,18 +81,19 @@
 		height: 7rem;
 	}
 
-	.trivia--wrapper {
+	.quiz--wrapper {
 		max-width: 48rem;
 		padding: 5rem 1rem 1rem 1rem;
 		text-align: center;
 	}
 
-	.blob--trivia {
+	.blob--quiz {
 		display: none;
 	}
 
 	.welcome--category {
-		font-size: 1.4rem;
+		font-size: 1.6rem;
 		max-width: 20rem;
+		padding: 1rem 0.5rem;
 	}
 }

@@ -11,7 +11,7 @@ export type formDataType = {
 export type answerProps = {
 	answer: string;
 	formData: formDataType[];
-	setFormData: Function;
+	setFormData: React.Dispatch<React.SetStateAction<formDataType[]>>;
 	questionId: number;
 	showResults: boolean;
 	name: string;
@@ -26,22 +26,29 @@ export type questionProps = {
 	question: string;
 	answers: string[];
 	questionId: number;
-	setFormData: Function;
+	setFormData: React.Dispatch<React.SetStateAction<formDataType[]>>;
 	formData: formDataType[];
 	showResults: boolean;
 };
 
-export type triviaType = {
+export type quizType = {
 	question: string;
 	correctAnswer: string;
 	incorrectAnswers: string[];
 };
 
-export type resultsType = {
-	category: string;
-	type: string;
-	difficulty: string;
-	question: string;
-	correct_answer: string;
-	incorrect_answers: string[];
-};
+export interface quizInterface {
+	response_code: number;
+	results: {
+		category: string;
+		type: string;
+		difficulty: string;
+		question: string;
+		correct_answer: string;
+		incorrect_answers: string[];
+	}[];
+}
+
+export interface categoriesInterface {
+	trivia_categories: { id: number; name: string }[];
+}

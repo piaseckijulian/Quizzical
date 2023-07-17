@@ -2,13 +2,13 @@
 
 Test your knowledge with our engaging Trivia Quiz App. Challenge yourself with a wide range of categories. Start playing now and become a trivia master!
 
-# Welcome Screen
+# Home Screen
 
 <img src="welcome.png" alt="Welcome Screen"  align="center" />
 
 <br />
 
-# Trivia Screen
+# Quiz Screen
 
 <img src="trivia.png" alt="Trivia Screen"  align="center" />
 

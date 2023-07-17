@@ -4,19 +4,16 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCategoryContext } from './contexts/CategoryContextProvider';
-import { categoriesType } from './types';
+import { categoriesType, categoriesInterface } from './types';
 
 const Home = () => {
-	const [categories, setCategories]: [categoriesType[], Function] = useState(
-		[]
-	);
-
+	const [categories, setCategories] = useState<categoriesType[]>([]);
 	const { selectedCategory, setSelectedCategory } = useCategoryContext();
 
 	const fetchCategories = async () => {
 		const url = 'https://opentdb.com/api_category.php';
 		const res = await fetch(url);
-		const data = await res.json();
+		const data: categoriesInterface = await res.json();
 
 		data.trivia_categories.unshift({ id: 0, name: 'Any Category' });
 
@@ -45,6 +42,7 @@ const Home = () => {
 					className="blob"
 					width={210}
 					height={210}
+					priority
 				/>
 			</div>
 			<div className="blob--right">
@@ -67,7 +65,7 @@ const Home = () => {
 				{categoriesEl}
 			</select>
 
-			<Link href="/trivia" className="btn">
+			<Link href="/quiz" className="btn">
 				Start quiz
 			</Link>
 		</div>
