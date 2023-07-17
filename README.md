@@ -4,13 +4,13 @@ Test your knowledge with our engaging Trivia Quiz App. Challenge yourself with a
 
 # Home Screen
 
-<img src="welcome.png" alt="Welcome Screen"  align="center" />
+<img src="home.png" alt="Home Screen"  align="center" />
 
 <br />
 
 # Quiz Screen
 
-<img src="trivia.png" alt="Trivia Screen"  align="center" />
+<img src="quiz.png" alt="Quiz Screen"  align="center" />
 
 <br />
 
