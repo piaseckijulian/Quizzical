@@ -1,14 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import useUpdateEffect from '../hooks/useUpdateEffect';
-import Loading from '../components/Loading';
+import useUpdateEffect from '../../hooks/useUpdateEffect';
+import Loading from '../../components/Loading';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { decode } from 'he';
-import { useCategoryContext } from '../contexts/CategoryContextProvider';
-import { formDataType, quizType, quizInterface } from '../types';
-import Question from '../components/Question';
+import { useCategoryContext } from '../../contexts/CategoryContextProvider';
+import { formDataType, quizType, quizInterface } from '../../types';
+import Question from '../../components/Question';
 
 const Quiz = () => {
 	const { selectedCategory } = useCategoryContext();

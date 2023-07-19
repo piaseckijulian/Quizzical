@@ -3,8 +3,8 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useCategoryContext } from './contexts/CategoryContextProvider';
-import { categoriesType, categoriesInterface } from './types';
+import { useCategoryContext } from '../contexts/CategoryContextProvider';
+import { categoriesType, categoriesInterface } from '../types';
 
 const Home = () => {
 	const [categories, setCategories] = useState<categoriesType[]>([]);
