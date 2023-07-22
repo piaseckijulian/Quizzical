@@ -98,14 +98,7 @@ const Quiz = () => {
 		});
 	};
 
-	const newGame = () => {
-		fetchData();
-		setShowResults(false);
-		setDisabledCheckAnswersBtn(true);
-		setIsLoading(true);
-		setScore(0);
-		router.push('/');
-	};
+	const newGame = () => router.push('/');
 
 	return (
 		<div className="container">
@@ -145,7 +138,8 @@ const Quiz = () => {
 							<button
 								className="btn"
 								disabled={disabledCheckAnswersBtn}
-								onClick={showResults ? newGame : checkAnswers}>
+								onClick={showResults ? newGame : checkAnswers}
+							>
 								{showResults ? 'Play again' : 'Check answers'}
 							</button>
 						</div>
