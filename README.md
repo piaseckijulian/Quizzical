@@ -11,6 +11,7 @@ Test your knowledge with our engaging Trivia Quiz App. Challenge yourself with a
 # Quiz Screen
 
 <img src="./images/quiz.png" alt="Quiz Screen"  align="center" />
+![Alt text](image.png)
 
 <br />
 
@@ -29,7 +30,6 @@ I built this project with:
 ## API
 
 - [Open Trivia Database](https://opentdb.com/)
-<br />
 - Endpoint: https://opentdb.com/api.php?amount=5
 
 # [Live Demo](https://julian-quizzical.vercel.app)
