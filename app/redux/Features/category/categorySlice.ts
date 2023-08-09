@@ -1,7 +1,7 @@
 'use client';
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { CategoriesState } from '../../../../types';
+import { CategoriesState } from '@/types';
 import axios from 'axios';
 
 const url = 'https://opentdb.com/api_category.php';

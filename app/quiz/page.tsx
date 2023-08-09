@@ -11,8 +11,8 @@ import {
   resetQuiz
 } from '../redux/Features/quiz/quizSlice';
 import { RootState, AppDispatch } from '../redux/store';
-import Loading from '../../components/Loading';
-import Question from '../../components/Question';
+import Loading from '@/components/Loading';
+import Question from '@/components/Question';
 
 const Quiz = () => {
   const dispatch = useDispatch<AppDispatch>();

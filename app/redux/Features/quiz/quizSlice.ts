@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-import { shuffle } from '../../../../utils';
-import { QuizState, quizInterface } from '../../../../types';
+import { shuffle } from '@/utils';
+import { QuizState, quizInterface } from '@/types';
 
 export const fetchQuizData = createAsyncThunk(
   'quiz/fetchQuizData',
@@ -96,7 +96,11 @@ const quizSlice = createSlice({
   }
 });
 
-export const { enableCheckAnswersBtn, checkAnswers, answerSelected, resetQuiz } =
-  quizSlice.actions;
+export const {
+  enableCheckAnswersBtn,
+  checkAnswers,
+  answerSelected,
+  resetQuiz
+} = quizSlice.actions;
 
 export default quizSlice.reducer;

@@ -1,11 +1,11 @@
-import '../styles/App.css';
-import '../styles/Home.css';
-import '../styles/Quiz.css';
-import '../styles/Queries.css';
+import '@/styles/App.css';
+import '@/styles/Home.css';
+import '@/styles/Quiz.css';
+import '@/styles/Queries.css';
 
 import type { Metadata } from 'next';
 
-import { childrenInterface } from '../types';
+import { childrenInterface } from '@/types';
 import { Providers } from './redux/provider';
 
 export const metadata: Metadata = {

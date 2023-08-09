@@ -2,10 +2,10 @@
 
 import { ChangeEvent, useId } from 'react';
 
-import { answerProps } from '../types';
+import { answerProps } from '@/types';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState, AppDispatch } from '../app/redux/store';
-import { answerSelected } from '../app/redux/Features/quiz/quizSlice';
+import { RootState, AppDispatch } from '@/app/redux/store';
+import { answerSelected } from '@/app/redux/Features/quiz/quizSlice';
 
 const Answer = ({ answer, name, questionId }: answerProps) => {
   const dispatch = useDispatch<AppDispatch>();

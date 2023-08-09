@@ -5,10 +5,10 @@ import Answer from './Answer';
 import { useId } from 'react';
 import { decode } from 'he';
 
-import { questionProps } from '../types';
+import { questionProps } from '@/types';
 
 import { useSelector } from 'react-redux';
-import { RootState } from '../app/redux/store';
+import { RootState } from '@/app/redux/store';
 
 const Question = ({ questionId }: questionProps) => {
   const { answers, quiz } = useSelector((store: RootState) => store.quiz);
