@@ -18,13 +18,13 @@ export const fetchCategories = createAsyncThunk(
   }
 );
 
+const anyCategory = {
+  id: 0,
+  name: 'Any Category'
+};
+
 const initialState = {
-  categories: [
-    {
-      id: 0,
-      name: 'Any Category'
-    }
-  ],
+  categories: [anyCategory],
   selectedCategory: 0
 } as CategoriesState;
 
@@ -38,7 +38,7 @@ const categorySlice = createSlice({
   },
   extraReducers: builder => {
     builder.addCase(fetchCategories.fulfilled, (state, action) => {
-      state.categories.push(...action.payload.trivia_categories);
+      state.categories = [anyCategory, ...action.payload.trivia_categories];
     });
     builder.addCase(fetchCategories.rejected, (state, action) => {
       console.error(action.payload);
