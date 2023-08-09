@@ -1,39 +1,35 @@
 'use client';
 
-import { useId } from 'react';
 import Answer from './Answer';
+
+import { useId } from 'react';
+import { decode } from 'he';
 
 import { questionProps } from '../types';
 
-const Question = ({
-	question,
-	answers,
-	questionId,
-	setFormData,
-	formData,
-	showResults
-}: questionProps) => {
-	const name = useId();
+import { useSelector } from 'react-redux';
+import { RootState } from '../app/redux/store';
 
-	const answersEl = answers.map((answer, index) => (
-		<Answer
-			key={index}
-			answer={answer}
-			formData={formData}
-			setFormData={setFormData}
-			questionId={questionId}
-			showResults={showResults}
-			name={name}
-		/>
-	));
+const Question = ({ questionId }: questionProps) => {
+  const { answers, quiz } = useSelector((store: RootState) => store.quiz);
+  const name = useId();
 
-	return (
-		<div className="question">
-			<h2 className="question--text">{question}</h2>
-			<div className="answers">{answersEl}</div>
-			<hr className="line" />
-		</div>
-	);
+  const answersEl = answers[questionId].map((answer, index) => (
+    <Answer
+      key={index}
+      answer={decode(answer)}
+      name={name}
+      questionId={questionId}
+    />
+  ));
+
+  return (
+    <div className="question">
+      <h2 className="question--text">{decode(quiz[questionId].question)}</h2>
+      <div className="answers">{answersEl}</div>
+      <hr className="line" />
+    </div>
+  );
 };
 
 export default Question;

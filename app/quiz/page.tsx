@@ -1,153 +1,108 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import useUpdateEffect from '../../hooks/useUpdateEffect';
-import Loading from '../../components/Loading';
+import { useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { decode } from 'he';
-import { useCategoryContext } from '../../contexts/CategoryContextProvider';
-import { formDataType, quizType, quizInterface } from '../../types';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  enableCheckAnswersBtn,
+  fetchQuizData,
+  checkAnswers,
+  resetQuiz
+} from '../redux/Features/quiz/quizSlice';
+import { RootState, AppDispatch } from '../redux/store';
+import Loading from '../../components/Loading';
 import Question from '../../components/Question';
 
 const Quiz = () => {
-	const { selectedCategory } = useCategoryContext();
+  const dispatch = useDispatch<AppDispatch>();
 
-	const [isLoading, setIsLoading] = useState(true);
-	const [quiz, setquiz] = useState<quizType[]>([]);
-	const [formData, setFormData] = useState<formDataType[]>([]);
-	const [allAnswers, setAllAnswers] = useState<string[][]>([]);
-	const [showResults, setShowResults] = useState(false);
-	const [disabledCheckAnswersBtn, setDisabledCheckAnswersBtn] = useState(true);
-	const [score, setScore] = useState(0);
-	const router = useRouter();
+  const {
+    isLoading,
+    quiz,
+    formData,
+    showResults,
+    isCheckAnswersBtnDisabled,
+    score
+  } = useSelector((store: RootState) => store.quiz);
+  const { selectedCategory } = useSelector(
+    (store: RootState) => store.category
+  );
 
-	const fetchData = async () => {
-		const url = `https://opentdb.com/api.php?amount=5&type=multiple&category=${selectedCategory}`;
-		const res = await fetch(url);
-		const data: quizInterface = await res.json();
+  const router = useRouter();
 
-		const results = data.results.map(result => ({
-			question: decode(result.question),
-			correctAnswer: decode(result.correct_answer),
-			incorrectAnswers: [
-				decode(result.incorrect_answers[0]),
-				decode(result.incorrect_answers[1]),
-				decode(result.incorrect_answers[2])
-			]
-		}));
+  useEffect(() => {
+    dispatch(fetchQuizData(selectedCategory));
+  }, []);
 
-		const formDataArray = results.map((result, index) => ({
-			id: index,
-			correctAnswer: result.correctAnswer,
-			userAnswer: ''
-		}));
+  useEffect(() => {
+    if (Object.keys(formData).length === 0) return;
 
-		const shuffle = (array: any[]) => {
-			for (let i = array.length - 1; i >= 0; i--) {
-				const randomIndex = Math.floor(Math.random() * (i + 1));
-				array.push(array[randomIndex]);
-				array.splice(randomIndex, 1);
-			}
-			return array;
-		};
+    formData.every(({ userAnswer }) => userAnswer !== '') &&
+      dispatch(enableCheckAnswersBtn());
+  }, [formData]);
 
-		const answersArray = results.map(result =>
-			shuffle([
-				result.correctAnswer,
-				result.incorrectAnswers[0],
-				result.incorrectAnswers[1],
-				result.incorrectAnswers[2]
-			])
-		);
+  const QuestionsEl = quiz.map((_, index: number) => (
+    <Question key={index} questionId={index} />
+  ));
 
-		setquiz(results);
-		setFormData(formDataArray);
-		setAllAnswers(answersArray);
-		setIsLoading(false);
-	};
+  const handleCheckAnswers = () => {
+    dispatch(checkAnswers());
+  };
 
-	useEffect(() => {
-		fetchData();
-	}, []);
+  const newGame = () => {
+    router.push('/');
+    dispatch(resetQuiz());
+  };
 
-	useUpdateEffect(() => {
-		formData.every(data => data.userAnswer !== '') &&
-			setDisabledCheckAnswersBtn(false);
-	}, [formData]);
+  return (
+    <div className="container">
+      <div className="quiz--wrapper">
+        <div className="blob--left">
+          <Image
+            src="/assets/blob-left.svg"
+            alt=""
+            className="blob blob--quiz"
+            width={130}
+            height={130}
+          />
+        </div>
+        <div className="blob--right">
+          <Image
+            src="/assets/blob-right.svg"
+            alt=""
+            className="blob"
+            width={210}
+            height={210}
+          />
+        </div>
 
-	const QuestionsEl = quiz.map((quiz, index) => (
-		<Question
-			key={index}
-			questionId={index}
-			question={quiz.question}
-			answers={allAnswers[index]}
-			formData={formData}
-			setFormData={setFormData}
-			showResults={showResults}
-		/>
-	));
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            {QuestionsEl}
 
-	const checkAnswers = () => {
-		setShowResults(true);
+            <div className="quiz--controls">
+              {showResults && (
+                <p className="quiz--score">
+                  You scored {score}/5 correct answers
+                </p>
+              )}
 
-		formData.map(data => {
-			if (data.userAnswer === data.correctAnswer) {
-				setScore(prevScore => prevScore + 1);
-			}
-		});
-	};
-
-	const newGame = () => router.push('/');
-
-	return (
-		<div className="container">
-			<div className="quiz--wrapper">
-				<div className="blob--left">
-					<Image
-						src="/assets/blob-left.svg"
-						alt=""
-						className="blob blob--quiz"
-						width={130}
-						height={130}
-					/>
-				</div>
-				<div className="blob--right">
-					<Image
-						src="/assets/blob-right.svg"
-						alt=""
-						className="blob"
-						width={210}
-						height={210}
-					/>
-				</div>
-
-				{isLoading ? (
-					<Loading />
-				) : (
-					<>
-						{QuestionsEl}
-
-						<div className="quiz--controls">
-							{showResults && (
-								<p className="quiz--score">
-									You scored {score}/5 correct answers
-								</p>
-							)}
-
-							<button
-								className="btn"
-								disabled={disabledCheckAnswersBtn}
-								onClick={showResults ? newGame : checkAnswers}
-							>
-								{showResults ? 'Play again' : 'Check answers'}
-							</button>
-						</div>
-					</>
-				)}
-			</div>
-		</div>
-	);
+              <button
+                className="btn"
+                disabled={isCheckAnswersBtnDisabled}
+                onClick={showResults ? newGame : handleCheckAnswers}
+              >
+                {showResults ? 'Play again' : 'Check answers'}
+              </button>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Quiz;
