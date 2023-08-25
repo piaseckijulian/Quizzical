@@ -5,11 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from './redux/store';
+import { RootState, AppDispatch } from '@/redux/store';
 import {
   fetchCategories,
   selectCategory
-} from './redux/Features/category/categorySlice';
+} from '@/redux/Features/category/categorySlice';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -24,25 +24,25 @@ const Home = () => {
     dispatch(fetchCategories());
   }, []);
 
-  const categoriesEl = categories.map(({ id, name }, index) => (
-    <option key={index} value={id}>
+  const categoriesEl = categories.map(({ id, name }) => (
+    <option key={id} value={id}>
       {name}
     </option>
   ));
 
   return (
-    <div className="welcome--wrapper">
-      <div className="blob--left">
+    <div className="welcome container">
+      <div className="blob__left">
         <Image
           src="/assets/blob-left.svg"
           alt=""
           className="blob"
           width={210}
           height={210}
-          priority
         />
       </div>
-      <div className="blob--right">
+
+      <div className="blob__right">
         <Image
           src="/assets/blob-right.svg"
           alt=""
@@ -52,11 +52,11 @@ const Home = () => {
         />
       </div>
 
-      <h1 className="welcome--heading">Quizzical</h1>
-      <p className="welcome--description">Test your knowledge!</p>
+      <h1 className="welcome__heading">Quizzical</h1>
+      <p className="welcome__desc">Test your knowledge!</p>
 
       <select
-        className="welcome--category"
+        className="welcome__category"
         value={selectedCategory}
         onChange={e => handleSelect(e)}
       >

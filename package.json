@@ -1,28 +1,29 @@
 {
-	"name": "quizzical",
-	"version": "1.0.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint"
-	},
-	"dependencies": {
-		"@reduxjs/toolkit": "^1.9.5",
-		"@types/node": "20.4.9",
-		"@types/react": "18.2.19",
-		"@types/react-dom": "18.2.7",
-		"axios": "^1.4.0",
-		"he": "^1.2.0",
-		"next": "13.4.13",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"react-loader-spinner": "^5.3.4",
-		"react-redux": "^8.1.2",
-		"typescript": "5.1.6"
-	},
-	"devDependencies": {
-		"@types/he": "^1.2.0"
-	}
+  "name": "quizzical",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
+    "@types/node": "20.4.9",
+    "@types/react": "18.2.19",
+    "@types/react-dom": "18.2.7",
+    "axios": "^1.4.0",
+    "debug": "^4.3.4",
+    "he": "^1.2.0",
+    "next": "13.4.13",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-loader-spinner": "^5.3.4",
+    "react-redux": "^8.1.2",
+    "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@types/he": "^1.2.0"
+  }
 }

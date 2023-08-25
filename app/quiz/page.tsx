@@ -9,8 +9,8 @@ import {
   fetchQuizData,
   checkAnswers,
   resetQuiz
-} from '../redux/Features/quiz/quizSlice';
-import { RootState, AppDispatch } from '../redux/store';
+} from '@/redux/Features/quiz/quizSlice';
+import { RootState, AppDispatch } from '@/redux/store';
 import Loading from '@/components/Loading';
 import Question from '@/components/Question';
 
@@ -57,17 +57,17 @@ const Quiz = () => {
 
   return (
     <div className="container">
-      <div className="quiz--wrapper">
-        <div className="blob--left">
+      <div className="quiz">
+        <div className="blob__left">
           <Image
             src="/assets/blob-left.svg"
             alt=""
-            className="blob blob--quiz"
+            className="blob blob__quiz"
             width={130}
             height={130}
           />
         </div>
-        <div className="blob--right">
+        <div className="blob__right">
           <Image
             src="/assets/blob-right.svg"
             alt=""
@@ -83,9 +83,9 @@ const Quiz = () => {
           <>
             {QuestionsEl}
 
-            <div className="quiz--controls">
+            <div className="quiz__controls">
               {showResults && (
-                <p className="quiz--score">
+                <p className="quiz__score">
                   You scored {score}/5 correct answers
                 </p>
               )}

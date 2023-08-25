@@ -1,5 +1,3 @@
-'use client';
-
 import Answer from './Answer';
 
 import { useId } from 'react';
@@ -8,7 +6,7 @@ import { decode } from 'he';
 import { questionProps } from '@/types';
 
 import { useSelector } from 'react-redux';
-import { RootState } from '@/app/redux/store';
+import { RootState } from '@/redux/store';
 
 const Question = ({ questionId }: questionProps) => {
   const { answers, quiz } = useSelector((store: RootState) => store.quiz);
@@ -24,11 +22,11 @@ const Question = ({ questionId }: questionProps) => {
   ));
 
   return (
-    <div className="question">
-      <h2 className="question--text">{decode(quiz[questionId].question)}</h2>
-      <div className="answers">{answersEl}</div>
-      <hr className="line" />
-    </div>
+    <>
+      <h2 className="quiz__question">{decode(quiz[questionId].question)}</h2>
+      <div className="quiz__answers">{answersEl}</div>
+      <hr className="quiz__line" />
+    </>
   );
 };
 

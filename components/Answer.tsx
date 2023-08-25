@@ -1,15 +1,14 @@
 'use client';
 
-import { ChangeEvent, useId } from 'react';
+import { ChangeEvent } from 'react';
 
 import { answerProps } from '@/types';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState, AppDispatch } from '@/app/redux/store';
-import { answerSelected } from '@/app/redux/Features/quiz/quizSlice';
+import { RootState, AppDispatch } from '@/redux/store';
+import { answerSelected } from '@/redux/Features/quiz/quizSlice';
 
 const Answer = ({ answer, name, questionId }: answerProps) => {
   const dispatch = useDispatch<AppDispatch>();
-  const id = useId();
   const { showResults, formData } = useSelector(
     (store: RootState) => store.quiz
   );
@@ -23,30 +22,27 @@ const Answer = ({ answer, name, questionId }: answerProps) => {
   let answerClass = '';
   if (showResults) {
     if (isCorrectAnswer) {
-      answerClass = 'correct';
+      answerClass = 'quiz__answers-label-correct';
     } else if (!isCorrectAnswer && formData[questionId].userAnswer === answer) {
-      answerClass = 'incorrect';
+      answerClass = 'quiz__answers-label-incorrect';
     } else {
-      answerClass = 'other';
+      answerClass = 'quiz__answers-label-other';
     }
   }
 
   return (
-    <>
+    <label className={`${answerClass} quiz__answers-label`}>
       <input
         type="radio"
         name={name}
-        id={id}
         value={answer}
+        className="quiz__answers-radio"
         onChange={e => handleChange(e)}
         checked={formData[questionId].userAnswer === answer}
         disabled={showResults}
       />
-
-      <label htmlFor={id} className={answerClass}>
-        {answer}
-      </label>
-    </>
+      {answer}
+    </label>
   );
 };
 
