@@ -20,6 +20,8 @@ const Home = () => {
   const handleSelect = (e: ChangeEvent<HTMLSelectElement>) =>
     dispatch(selectCategory(parseInt(e.target.value)));
 
+  const onSwitchToQuiz = () => dispatch(selectCategory(0));
+
   useEffect(() => {
     dispatch(fetchCategories());
   }, []);
@@ -63,7 +65,7 @@ const Home = () => {
         {categoriesEl}
       </select>
 
-      <Link href="/quiz" className="btn">
+      <Link href="/quiz" className="btn" onClick={onSwitchToQuiz}>
         Start quiz
       </Link>
     </div>

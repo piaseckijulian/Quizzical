@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   enableCheckAnswersBtn,
@@ -28,11 +28,14 @@ const Quiz = () => {
   const { selectedCategory } = useSelector(
     (store: RootState) => store.category
   );
-
   const router = useRouter();
 
   useEffect(() => {
-    dispatch(fetchQuizData(selectedCategory));
+    if (selectedCategory !== -1) {
+      dispatch(fetchQuizData(selectedCategory));
+    } else {
+      redirect('/');
+    }
   }, []);
 
   useEffect(() => {

@@ -25,7 +25,7 @@ const anyCategory = {
 
 const initialState = {
   categories: [anyCategory],
-  selectedCategory: 0
+  selectedCategory: -1
 } as CategoriesState;
 
 const categorySlice = createSlice({
