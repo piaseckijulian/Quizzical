@@ -25,7 +25,6 @@ I built this project with:
 - [Redux Toolkit](https://www.npmjs.com/package/@reduxjs/toolkit)
 - [Axios](https://www.npmjs.com/package/axios)
 - [he](https://www.npmjs.com/package/he)
-- [React Loader Spinner](https://www.npmjs.com/package/react-loader-spinner)
 
 ## API
 

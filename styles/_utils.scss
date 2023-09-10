@@ -30,6 +30,17 @@
       background-color: $primary;
     }
   }
+
+  @media (max-width: 60em) {
+    font-size: 1.6rem;
+    padding: 2rem 4rem;
+  }
+
+  @media (max-width: 46em) {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.6rem;
+  }
 }
 
 .blob__left {
@@ -47,57 +58,38 @@
 .blob {
   width: 21rem;
   height: 21rem;
+
+  @media (max-width: 87em) {
+    width: 14rem;
+    height: 14rem;
+  }
+
+  @media (max-width: 46em) {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  @media (max-width: 30em) {
+    width: 7rem;
+    height: 7rem;
+  }
 }
 
 .blob__quiz {
   width: 13rem;
   height: 13rem;
-}
 
-@media (max-width: 87em) {
-  .blob {
-    width: 14rem;
-    height: 14rem;
-  }
-
-  .blob__quiz {
+  @media (max-width: 87em) {
     width: 10rem;
     height: 10rem;
   }
-}
 
-@media (max-width: 60em) {
-  .btn {
-    font-size: 1.6rem;
-    padding: 2rem 4rem;
-  }
-
-  .blob__quiz {
-    width: 7rem;
-    height: 7rem;
-  }
-}
-
-@media (max-width: 46em) {
-  .btn {
-    display: block;
-    margin: 0 auto;
-    font-size: 1.6rem;
-  }
-
-  .blob {
-    width: 10rem;
-    height: 10rem;
-  }
-}
-
-@media (max-width: 30em) {
-  .blob {
+  @media (max-width: 60em) {
     width: 7rem;
     height: 7rem;
   }
 
-  .blob__quiz {
+  @media (max-width: 30em) {
     display: none;
   }
 }

@@ -7,6 +7,16 @@
     font-size: 3.8rem;
     line-height: 1.4;
     margin-bottom: 3.2rem;
+
+    @media (max-width: 30em) {
+      line-height: 1.2;
+    }
+
+    @media (max-width: 46em) {
+      font-size: 3rem;
+      text-wrap: balance;
+      text-align: center;
+    }
   }
 
   &__line {
@@ -21,11 +31,20 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
+
+    @media (max-width: 46em) {
+      display: block;
+    }
   }
 
   &__score {
     font-weight: 700;
     font-size: 2.6rem;
+
+    @media (max-width: 46em) {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
   }
 
   &__answers {
@@ -33,6 +52,14 @@
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     column-gap: 2.2rem;
+
+    @media (max-width: 87em) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 46em) {
+      grid-template-columns: repeat(1, 1fr);
+    }
 
     &-label {
       padding: 1rem 2rem;
@@ -48,6 +75,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      @media (max-width: 46em) {
+        font-size: 2rem;
+      }
 
       &:hover {
         background-color: $answer-hover;
@@ -87,47 +118,10 @@
       width: 0;
     }
   }
-}
 
-@media (max-width: 87em) {
-  .quiz__answers {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 46em) {
-  .quiz__question {
-    font-size: 3rem;
-    text-wrap: balance;
-    text-align: center;
-  }
-
-  .quiz__controls {
-    display: block;
-
-    .quiz__score {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-  }
-
-  .quiz__answers {
-    grid-template-columns: 1fr;
-
-    &-label {
-      font-size: 2rem;
-    }
-  }
-}
-
-@media (max-width: 30em) {
-  .quiz {
+  @media (max-width: 30em) {
     max-width: 48rem;
     padding: 5rem 1rem 1rem;
     text-align: center;
-
-    &__question {
-      line-height: 1.2;
-    }
   }
 }

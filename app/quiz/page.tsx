@@ -11,23 +11,15 @@ import {
   resetQuiz
 } from '@/redux/Features/quiz/quizSlice';
 import { RootState, AppDispatch } from '@/redux/store';
-import Loading from '@/components/Loading';
+import Spinner from '@/components/Spinner';
 import Question from '@/components/Question';
 
 const Quiz = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const {
-    isLoading,
-    quiz,
-    formData,
-    showResults,
-    isCheckAnswersBtnDisabled,
-    score
-  } = useSelector((store: RootState) => store.quiz);
-  const { selectedCategory } = useSelector(
-    (store: RootState) => store.category
-  );
+  const { isLoading, quiz, formData, showResults, isCheckAnswersBtnDisabled, score } =
+    useSelector((store: RootState) => store.quiz);
+  const { selectedCategory } = useSelector((store: RootState) => store.category);
   const router = useRouter();
 
   useEffect(() => {
@@ -81,16 +73,14 @@ const Quiz = () => {
         </div>
 
         {isLoading ? (
-          <Loading />
+          <Spinner />
         ) : (
           <>
             {QuestionsEl}
 
             <div className="quiz__controls">
               {showResults && (
-                <p className="quiz__score">
-                  You scored {score}/5 correct answers
-                </p>
+                <p className="quiz__score">You scored {score}/5 correct answers</p>
               )}
 
               <button

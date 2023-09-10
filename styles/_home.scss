@@ -26,30 +26,24 @@
     margin-bottom: 2rem;
     width: 56rem;
 
-    option {
-      text-align: center;
-      font-weight: 500;
-    }
-  }
-
-  @media (max-width: 60em) {
-    &__category {
+    @media (max-width: 60em) {
       max-width: 40rem;
     }
-  }
 
-  @media (max-width: 46em) {
-    &__category {
+    @media (max-width: 46em) {
       font-size: 1.6rem;
       max-width: 30rem;
     }
-  }
 
-  @media (max-width: 30em) {
-    &__category {
+    @media (max-width: 30em) {
       font-size: 1.6rem;
       max-width: 20rem;
       padding: 1rem 0.5rem;
+    }
+
+    option {
+      text-align: center;
+      font-weight: 500;
     }
   }
 }
