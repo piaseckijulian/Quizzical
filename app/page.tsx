@@ -62,6 +62,7 @@ const Home = () => {
         className="welcome__category"
         value={selectedCategory}
         onChange={e => handleSelect(e)}
+        aria-label="Select category"
       >
         {categoriesEl}
       </select>
