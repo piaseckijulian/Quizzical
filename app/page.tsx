@@ -1,38 +1,8 @@
-'use client';
-
-import { ChangeEvent, useEffect } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
-
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '@/redux/store';
-import { fetchCategories, selectCategory } from '@/redux/Features/category/categorySlice';
+import SelectCategory from '@/components/SelectCategory';
+import Button from '@/components/Button';
 
 const Home = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { categories, selectedCategory } = useSelector(
-    (store: RootState) => store.category
-  );
-
-  const handleSelect = (e: ChangeEvent<HTMLSelectElement>) =>
-    dispatch(selectCategory(parseInt(e.target.value)));
-
-  const onSwitchToQuiz = () => {
-    if (selectedCategory === -1) {
-      dispatch(selectCategory(0));
-    }
-  };
-
-  useEffect(() => {
-    dispatch(fetchCategories());
-  }, []);
-
-  const categoriesEl = categories.map(({ id, name }) => (
-    <option key={id} value={id}>
-      {name}
-    </option>
-  ));
-
   return (
     <div className="welcome container">
       <div className="blob__left">
@@ -58,18 +28,9 @@ const Home = () => {
       <h1 className="welcome__heading">Quizzical</h1>
       <p className="welcome__desc">Test your knowledge!</p>
 
-      <select
-        className="welcome__category"
-        value={selectedCategory}
-        onChange={e => handleSelect(e)}
-        aria-label="Select category"
-      >
-        {categoriesEl}
-      </select>
+      <SelectCategory />
 
-      <Link href="/quiz" className="btn" onClick={onSwitchToQuiz}>
-        Start quiz
-      </Link>
+      <Button type="start" />
     </div>
   );
 };
