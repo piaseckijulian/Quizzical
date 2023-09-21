@@ -6,10 +6,7 @@ import Image from 'next/image';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '@/redux/store';
-import {
-  fetchCategories,
-  selectCategory
-} from '@/redux/Features/category/categorySlice';
+import { fetchCategories, selectCategory } from '@/redux/Features/category/categorySlice';
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -20,7 +17,11 @@ const Home = () => {
   const handleSelect = (e: ChangeEvent<HTMLSelectElement>) =>
     dispatch(selectCategory(parseInt(e.target.value)));
 
-  const onSwitchToQuiz = () => dispatch(selectCategory(0));
+  const onSwitchToQuiz = () => {
+    if (selectedCategory === -1) {
+      dispatch(selectCategory(0));
+    }
+  };
 
   useEffect(() => {
     dispatch(fetchCategories());

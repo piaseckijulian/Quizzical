@@ -16,7 +16,7 @@
     "axios": "^1.4.0",
     "debug": "^4.3.4",
     "he": "^1.2.0",
-    "next": "13.4.13",
+    "next": "^13.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-loader-spinner": "^5.4.5",
@@ -25,7 +25,6 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@types/he": "^1.2.0",
-    "daisyui": "^3.7.3"
+    "@types/he": "^1.2.0"
   }
 }
