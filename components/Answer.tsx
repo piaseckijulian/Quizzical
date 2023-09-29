@@ -1,10 +1,10 @@
 'use client';
 
-import { ChangeEvent } from 'react';
-import { answerProps } from '@/types';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState, AppDispatch } from '@/redux/store';
 import { answerSelected } from '@/redux/Features/quiz/quizSlice';
+import { AppDispatch, RootState } from '@/redux/store';
+import { answerProps } from '@/types';
+import { ChangeEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Answer = ({ answer, name, questionId }: answerProps) => {
   const dispatch = useDispatch<AppDispatch>();

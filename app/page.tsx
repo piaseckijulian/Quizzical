@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import SelectCategory from '@/components/SelectCategory';
 import Button from '@/components/Button';
+import SelectCategory from '@/components/SelectCategory';
+import Image from 'next/image';
 
 const Home = () => {
   return (

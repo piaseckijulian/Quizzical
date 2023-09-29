@@ -1,14 +1,14 @@
 'use client';
 
-import { useEffect } from 'react';
+import Button from '@/components/Button';
+import Question from '@/components/Question';
+import Spinner from '@/components/Spinner';
+import { fetchQuizData } from '@/redux/Features/quiz/quizSlice';
+import { AppDispatch, RootState } from '@/redux/store';
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchQuizData } from '@/redux/Features/quiz/quizSlice';
-import { RootState, AppDispatch } from '@/redux/store';
-import Spinner from '@/components/Spinner';
-import Question from '@/components/Question';
-import Button from '@/components/Button';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Quiz = () => {
   const dispatch = useDispatch<AppDispatch>();

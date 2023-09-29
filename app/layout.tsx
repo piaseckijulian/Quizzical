@@ -1,9 +1,7 @@
-import '@/styles/main.scss';
-
-import type { Metadata } from 'next';
-
-import { childrenInterface } from '@/types';
 import { Providers } from '@/redux/provider';
+import '@/styles/main.scss';
+import { childrenInterface } from '@/types';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Quizzical',

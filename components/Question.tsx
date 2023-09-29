@@ -1,24 +1,16 @@
-import Answer from './Answer';
-
-import { useId } from 'react';
-import { decode } from 'he';
-
-import { questionProps } from '@/types';
-
-import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
+import { questionProps } from '@/types';
+import { decode } from 'he';
+import { useId } from 'react';
+import { useSelector } from 'react-redux';
+import Answer from './Answer';
 
 const Question = ({ questionId }: questionProps) => {
   const { answers, quiz } = useSelector((store: RootState) => store.quiz);
   const name = useId();
 
   const answersEl = answers[questionId].map((answer, index) => (
-    <Answer
-      key={index}
-      answer={decode(answer)}
-      name={name}
-      questionId={questionId}
-    />
+    <Answer key={index} answer={decode(answer)} name={name} questionId={questionId} />
   ));
 
   return (

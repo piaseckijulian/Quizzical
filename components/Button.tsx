@@ -1,12 +1,16 @@
 'use client';
 
-import Link from 'next/link';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '@/redux/store';
 import { selectCategory } from '@/redux/Features/category/categorySlice';
-import { checkAnswers, enableCheckAnswersBtn, resetQuiz } from '@/redux/Features/quiz/quizSlice';
+import {
+  checkAnswers,
+  enableCheckAnswersBtn,
+  resetQuiz
+} from '@/redux/Features/quiz/quizSlice';
+import { AppDispatch, RootState } from '@/redux/store';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 interface Props {
   type: 'start' | 'check';
