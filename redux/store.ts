@@ -1,5 +1,3 @@
-'use client';
-
 import { configureStore } from '@reduxjs/toolkit';
 import categoryReducer from './Features/category/categorySlice';
 import quizReducer from './Features/quiz/quizSlice';
