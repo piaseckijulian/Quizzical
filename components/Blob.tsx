@@ -11,10 +11,10 @@ const Blob = ({ direction, isQuiz }: Props) => {
       <Image
         src={`/assets/blob-${direction}.svg`}
         alt=""
-        className={`blob ${isQuiz && 'blob__quiz'}`}
+        className={`blob ${isQuiz ? 'blob__quiz' : ''}`}
         width={isQuiz ? 130 : 210}
         height={isQuiz ? 130 : 210}
-        priority={true}
+        priority={isQuiz && direction === 'left'}
       />
     </div>
   );
