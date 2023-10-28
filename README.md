@@ -23,8 +23,8 @@ I built this project with:
 - [Typescript](https://www.npmjs.com/package/typescript)
 - [Redux](https://www.npmjs.com/package/react-redux)
 - [Redux Toolkit](https://www.npmjs.com/package/@reduxjs/toolkit)
-- [Sass](https://www.npmjs.com/package/sass)
 - [Axios](https://www.npmjs.com/package/axios)
+- [Sass](https://www.npmjs.com/package/sass)
 - [he](https://www.npmjs.com/package/he)
 - [React Loader Spinner](https://www.npmjs.com/package/react-loader-spinner)
 
