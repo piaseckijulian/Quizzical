@@ -4,7 +4,7 @@ import Blob from '@/components/Blob';
 import Button from '@/components/Button';
 import Question from '@/components/Question';
 import Spinner from '@/components/Spinner';
-import { fetchQuizData } from '@/redux/Features/quiz/quizSlice';
+import { fetchQuizData } from '@/redux/features/quiz/quizSlice';
 import { AppDispatch, RootState } from '@/redux/store';
 import { redirect } from 'next/navigation';
 import { useEffect } from 'react';

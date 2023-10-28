@@ -1,11 +1,11 @@
 'use client';
 
-import { selectCategory } from '@/redux/Features/category/categorySlice';
+import { selectCategory } from '@/redux/features/category/categorySlice';
 import {
   checkAnswers,
   enableCheckAnswersBtn,
   resetQuiz
-} from '@/redux/Features/quiz/quizSlice';
+} from '@/redux/features/quiz/quizSlice';
 import type { AppDispatch, RootState } from '@/redux/store';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';

@@ -1,6 +1,6 @@
 'use client';
 
-import { answerSelected } from '@/redux/Features/quiz/quizSlice';
+import { answerSelected } from '@/redux/features/quiz/quizSlice';
 import type { AppDispatch, RootState } from '@/redux/store';
 import type { ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
