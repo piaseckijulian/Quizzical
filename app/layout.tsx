@@ -1,7 +1,7 @@
-import { Providers } from '@/redux/provider';
+import Providers from '@/redux/Providers';
 import '@/styles/main.scss';
-import { ChildrenProps } from '@/types';
 import type { Metadata } from 'next';
+import type { PropsWithChildren } from 'react';
 
 export const metadata: Metadata = {
   title: 'Quizzical',
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     'Test your knowledge with our engaging Quiz App. Challenge yourself with a wide range of categories. Start playing now and become a quiz master!'
 };
 
-const RootLayout = ({ children }: ChildrenProps) => (
+const RootLayout = ({ children }: PropsWithChildren) => (
   <html lang="en">
     <body>
       <Providers>{children}</Providers>

@@ -1,8 +1,9 @@
 'use client';
 
 import { fetchCategories, selectCategory } from '@/redux/Features/category/categorySlice';
-import { AppDispatch, RootState } from '@/redux/store';
-import { ChangeEvent, useEffect } from 'react';
+import type { AppDispatch, RootState } from '@/redux/store';
+import type { ChangeEvent } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const SelectCategory = () => {

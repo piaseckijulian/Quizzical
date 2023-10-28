@@ -1,4 +1,4 @@
-import { QuizState, quizInterface } from '@/types';
+import type { QuizState, quizInterface } from '@/types';
 import { shuffle } from '@/utils';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';

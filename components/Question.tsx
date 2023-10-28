@@ -1,9 +1,12 @@
-import { RootState } from '@/redux/store';
-import { questionProps } from '@/types';
+import type { RootState } from '@/redux/store';
 import { decode } from 'he';
 import { useId } from 'react';
 import { useSelector } from 'react-redux';
 import Answer from './Answer';
+
+export interface questionProps {
+  questionId: number;
+}
 
 const Question = ({ questionId }: questionProps) => {
   const { answers, quiz } = useSelector((store: RootState) => store.quiz);

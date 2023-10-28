@@ -1,6 +1,4 @@
-'use client';
-
-import { CategoriesState } from '@/types';
+import type { CategoriesState } from '@/types';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 

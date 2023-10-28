@@ -6,7 +6,7 @@ import {
   enableCheckAnswersBtn,
   resetQuiz
 } from '@/redux/Features/quiz/quizSlice';
-import { AppDispatch, RootState } from '@/redux/store';
+import type { AppDispatch, RootState } from '@/redux/store';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';

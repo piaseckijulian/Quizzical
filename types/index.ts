@@ -1,7 +1,3 @@
-export interface ChildrenProps {
-  children: React.ReactNode;
-}
-
 export interface CategoriesState {
   categories: {
     id: number;
@@ -31,14 +27,4 @@ export interface quizInterface {
   question: string;
   correct_answer: string;
   incorrect_answers: string[];
-}
-
-export interface questionProps {
-  questionId: number;
-}
-
-export interface answerProps {
-  answer: string;
-  name: string;
-  questionId: number;
 }

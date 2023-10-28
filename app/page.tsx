@@ -1,29 +1,12 @@
+import Blob from '@/components/Blob';
 import Button from '@/components/Button';
 import SelectCategory from '@/components/SelectCategory';
-import Image from 'next/image';
 
 const Home = () => {
   return (
     <div className="welcome container">
-      <div className="blob__left">
-        <Image
-          src="/assets/blob-left.svg"
-          alt=""
-          className="blob"
-          width={210}
-          height={210}
-        />
-      </div>
-
-      <div className="blob__right">
-        <Image
-          src="/assets/blob-right.svg"
-          alt=""
-          className="blob"
-          width={210}
-          height={210}
-        />
-      </div>
+      <Blob direction="left" />
+      <Blob direction="right" />
 
       <h1 className="welcome__heading">Quizzical</h1>
       <p className="welcome__desc">Test your knowledge!</p>
