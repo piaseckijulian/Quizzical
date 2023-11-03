@@ -1,9 +1,6 @@
 'use client';
 
-import Blob from '@/components/Blob';
-import Button from '@/components/Button';
-import Question from '@/components/Question';
-import Spinner from '@/components/Spinner';
+import { Blob, Button, Question, Spinner } from '@/components';
 import { fetchQuizData } from '@/redux/features/quiz/quizSlice';
 import { AppDispatch, RootState } from '@/redux/store';
 import { redirect } from 'next/navigation';

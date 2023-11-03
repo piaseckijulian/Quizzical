@@ -1,4 +1,4 @@
-import Providers from '@/redux/Providers';
+import { Providers } from '@/components';
 import '@/styles/main.scss';
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
