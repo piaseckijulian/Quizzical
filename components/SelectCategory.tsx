@@ -1,29 +1,20 @@
 'use client';
 
-import { fetchCategories, selectCategory } from '@/redux/features/category/categorySlice';
-import type { AppDispatch, RootState } from '@/redux/store';
+import { useCategoryStore } from '@/state/categoryStore';
 import type { ChangeEvent } from 'react';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 const SelectCategory = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { categories, selectedCategory } = useSelector(
-    (store: RootState) => store.category
-  );
+  const { categories, selectedCategory, fetchCategories, setSelectedCategory } =
+    useCategoryStore();
 
   useEffect(() => {
-    dispatch(fetchCategories());
+    fetchCategories();
   }, []);
 
-  const handleSelect = (e: ChangeEvent<HTMLSelectElement>) =>
-    dispatch(selectCategory(parseInt(e.target.value)));
-
-  const categoriesEl = categories.map(({ id, name }) => (
-    <option key={id} value={id}>
-      {name}
-    </option>
-  ));
+  const handleSelect = (e: ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCategory(parseInt(e.target.value));
+  };
 
   return (
     <select
@@ -32,7 +23,11 @@ const SelectCategory = () => {
       onChange={e => handleSelect(e)}
       aria-label="Select category"
     >
-      {categoriesEl}
+      {categories.map(({ id, name }) => (
+        <option key={id} value={id}>
+          {name}
+        </option>
+      ))}
     </select>
   );
 };

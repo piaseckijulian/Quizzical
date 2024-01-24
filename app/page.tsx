@@ -2,7 +2,7 @@ import { Blob, Button, SelectCategory } from '@/components';
 
 const Home = () => {
   return (
-    <div className="welcome container">
+    <main className="welcome container">
       <Blob direction="left" />
       <Blob direction="right" />
 
@@ -12,7 +12,7 @@ const Home = () => {
       <SelectCategory />
 
       <Button type="start" />
-    </div>
+    </main>
   );
 };
 

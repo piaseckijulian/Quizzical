@@ -1,4 +1,3 @@
-import { Providers } from '@/components';
 import '@/styles/main.scss';
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
@@ -11,9 +10,7 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: PropsWithChildren) => (
   <html lang="en">
-    <body>
-      <Providers>{children}</Providers>
-    </body>
+    <body>{children}</body>
   </html>
 );
 

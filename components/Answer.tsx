@@ -1,31 +1,31 @@
 'use client';
 
-import { answerSelected } from '@/redux/features/quiz/quizSlice';
-import type { AppDispatch, RootState } from '@/redux/store';
-import type { ChangeEvent } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useQuizStore } from '@/state/quizStore';
 
-export interface answerProps {
+interface Props {
   answer: string;
   name: string;
-  questionId: number;
+  id: number;
 }
 
-const Answer = ({ answer, name, questionId }: answerProps) => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { showResults, formData } = useSelector((store: RootState) => store.quiz);
+const Answer = ({ answer, name, id }: Props) => {
+  const { quizData, answerSelect, showResults } = useQuizStore(state => ({
+    quizData: state.quizData,
+    answerSelect: state.answerSelect,
+    showResults: state.showResults
+  }));
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(answerSelected({ selected: e.target.value, questionId }));
+  const handleChange = () => {
+    answerSelect(id, answer);
   };
 
-  const isCorrectAnswer = answer === formData[questionId].correctAnswer;
+  const isCorrectAnswer = answer === quizData[id].correctAnswer;
 
   let answerClass = '';
   if (showResults) {
     if (isCorrectAnswer) {
       answerClass = 'quiz__answers-label-correct';
-    } else if (!isCorrectAnswer && formData[questionId].userAnswer === answer) {
+    } else if (!isCorrectAnswer && answer === quizData[id].userAnswer) {
       answerClass = 'quiz__answers-label-incorrect';
     } else {
       answerClass = 'quiz__answers-label-other';
@@ -39,8 +39,8 @@ const Answer = ({ answer, name, questionId }: answerProps) => {
         name={name}
         value={answer}
         className="quiz__answers-radio"
-        onChange={e => handleChange(e)}
-        checked={formData[questionId].userAnswer === answer}
+        onChange={handleChange}
+        checked={quizData[id].userAnswer === answer}
         disabled={showResults}
       />
       {answer}

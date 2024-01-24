@@ -1,43 +1,40 @@
 'use client';
 
 import { Blob, Button, Question, Spinner } from '@/components';
-import { fetchQuizData } from '@/redux/features/quiz/quizSlice';
-import { AppDispatch, RootState } from '@/redux/store';
+import { useCategoryStore } from '@/state/categoryStore';
+import { useQuizStore } from '@/state/quizStore';
 import { redirect } from 'next/navigation';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 const Quiz = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  const { quizData, isLoading, score, fetchQuiz, showResults } = useQuizStore(state => ({
+    quizData: state.quizData,
+    isLoading: state.isLoading,
+    score: state.score,
+    fetchQuiz: state.fetchQuiz,
+    showResults: state.showResults
+  }));
+  const selectedCategory = useCategoryStore(store => store.selectedCategory);
 
-  const { isLoading, quiz, showResults, score } = useSelector(
-    (store: RootState) => store.quiz
-  );
-  const { selectedCategory } = useSelector((store: RootState) => store.category);
-
-  if (selectedCategory === -1) {
-    redirect('/');
-  }
+  if (selectedCategory === -1) redirect('/');
 
   useEffect(() => {
-    dispatch(fetchQuizData(selectedCategory));
+    fetchQuiz(selectedCategory);
   }, []);
 
-  const QuestionsEl = quiz.map((_, index: number) => (
-    <Question key={index} questionId={index} />
-  ));
-
   return (
-    <div className="container">
+    <main className="container">
       <div className="quiz">
-        <Blob direction="left" isQuiz={true} />
+        <Blob direction="left" isQuiz />
         <Blob direction="right" />
 
         {isLoading ? (
           <Spinner />
         ) : (
           <>
-            {QuestionsEl}
+            {quizData.map(data => (
+              <Question key={data.id} id={data.id} />
+            ))}
 
             <div className="quiz__controls">
               {showResults && (
@@ -49,7 +46,7 @@ const Quiz = () => {
           </>
         )}
       </div>
-    </div>
+    </main>
   );
 };
 

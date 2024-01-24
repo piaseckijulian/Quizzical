@@ -21,8 +21,7 @@ I built this project with:
 
 - [Next.js](https://www.npmjs.com/package/next)
 - [Typescript](https://www.npmjs.com/package/typescript)
-- [Redux](https://www.npmjs.com/package/react-redux)
-- [Redux Toolkit](https://www.npmjs.com/package/@reduxjs/toolkit)
+- [Zustand](https://www.npmjs.com/package/zustand)
 - [Axios](https://www.npmjs.com/package/axios)
 - [Sass](https://www.npmjs.com/package/sass)
 - [he](https://www.npmjs.com/package/he)

@@ -1,16 +1,10 @@
 'use client';
 
-import { selectCategory } from '@/redux/features/category/categorySlice';
-import {
-  checkAnswers,
-  enableCheckAnswersBtn,
-  resetQuiz
-} from '@/redux/features/quiz/quizSlice';
-import type { AppDispatch, RootState } from '@/redux/store';
+import { useCategoryStore } from '@/state/categoryStore';
+import { useQuizStore } from '@/state/quizStore';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 interface Props {
   type: 'start' | 'check';
@@ -18,50 +12,66 @@ interface Props {
 
 const Button = ({ type }: Props) => {
   const router = useRouter();
-  const dispatch = useDispatch<AppDispatch>();
-  const { selectedCategory } = useSelector((store: RootState) => store.category);
-  const { formData, showResults, isCheckAnswersBtnDisabled } = useSelector(
-    (store: RootState) => store.quiz
-  );
 
-  const onSwitchToQuiz = () => {
-    if (selectedCategory === -1) {
-      dispatch(selectCategory(0));
-    }
+  const {
+    quizData,
+    showResults,
+    isCheckAnswersBtnDisabled,
+    resetQuiz,
+    enableCheckAnswersBtn,
+    checkAnswers
+  } = useQuizStore(state => ({
+    quizData: state.quizData,
+    showResults: state.showResults,
+    isCheckAnswersBtnDisabled: state.isCheckAnswersBtnDisabled,
+    resetQuiz: state.resetQuiz,
+    enableCheckAnswersBtn: state.enableCheckAnswersBtn,
+    checkAnswers: state.checkAnswers
+  }));
+
+  const { selectedCategory, setSelectedCategory } = useCategoryStore(state => ({
+    selectedCategory: state.selectedCategory,
+    setSelectedCategory: state.setSelectedCategory
+  }));
+
+  useEffect(() => {
+    if (Object.keys(quizData).length === 0) return;
+
+    quizData.every(({ userAnswer }) => userAnswer !== '') && enableCheckAnswersBtn();
+  }, [quizData]);
+
+  const handleCategory = () => {
+    if (selectedCategory === -1) setSelectedCategory(0);
+  };
+
+  const handleNewGame = () => {
+    resetQuiz();
+    router.push('/');
   };
 
   const handleCheckAnswers = () => {
-    dispatch(checkAnswers());
+    checkAnswers();
   };
 
-  const newGame = () => {
-    router.push('/');
-    dispatch(resetQuiz());
-  };
-
-  useEffect(() => {
-    if (Object.keys(formData).length === 0) return;
-
-    formData.every(({ userAnswer }) => userAnswer !== '') &&
-      dispatch(enableCheckAnswersBtn());
-  }, [formData]);
-
-  if (type === 'start') {
-    return (
-      <Link href="/quiz" className="btn" onClick={onSwitchToQuiz}>
-        Start quiz
-      </Link>
-    );
-  } else if (type === 'check') {
-    return (
-      <button
-        className="btn"
-        disabled={isCheckAnswersBtnDisabled}
-        onClick={showResults ? newGame : handleCheckAnswers}
-      >
-        {showResults ? 'Play again' : 'Check answers'}
-      </button>
-    );
+  switch (type) {
+    case 'start':
+      return (
+        <Link href="/quiz" className="btn" onClick={handleCategory}>
+          Start quiz
+        </Link>
+      );
+    case 'check':
+      return (
+        <button
+          className="btn"
+          disabled={isCheckAnswersBtnDisabled}
+          onClick={showResults ? handleNewGame : handleCheckAnswers}
+        >
+          {showResults ? 'Play again' : 'Check answers'}
+        </button>
+      );
+    default:
+      break;
   }
 };
 
