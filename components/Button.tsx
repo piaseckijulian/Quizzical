@@ -41,7 +41,7 @@ const Button = ({ type }: Props) => {
   }, [quizData]);
 
   const handleCategory = () => {
-    if (selectedCategory === -1) setSelectedCategory(0);
+    if (selectedCategory === null) setSelectedCategory(0);
   };
 
   const handleNewGame = () => {

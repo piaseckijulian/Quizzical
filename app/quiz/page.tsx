@@ -1,22 +1,20 @@
 'use client';
 
-import { Blob, Button, Question, Spinner } from '@/components';
+import { Blob, Question, QuizControls, Spinner } from '@/components';
 import { useCategoryStore } from '@/state/categoryStore';
 import { useQuizStore } from '@/state/quizStore';
 import { redirect } from 'next/navigation';
 import { useEffect } from 'react';
 
-const Quiz = () => {
-  const { quizData, isLoading, score, fetchQuiz, showResults } = useQuizStore(state => ({
+const QuizPage = () => {
+  const { quizData, isLoading, fetchQuiz } = useQuizStore(state => ({
     quizData: state.quizData,
     isLoading: state.isLoading,
-    score: state.score,
-    fetchQuiz: state.fetchQuiz,
-    showResults: state.showResults
+    fetchQuiz: state.fetchQuiz
   }));
   const selectedCategory = useCategoryStore(store => store.selectedCategory);
 
-  if (selectedCategory === -1) redirect('/');
+  if (selectedCategory === null) redirect('/');
 
   useEffect(() => {
     fetchQuiz(selectedCategory);
@@ -36,13 +34,7 @@ const Quiz = () => {
               <Question key={data.id} id={data.id} />
             ))}
 
-            <div className="quiz__controls">
-              {showResults && (
-                <p className="quiz__score">You scored {score}/5 correct answers</p>
-              )}
-
-              <Button type="check" />
-            </div>
+            <QuizControls />
           </>
         )}
       </div>
@@ -50,4 +42,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz;
+export default QuizPage;

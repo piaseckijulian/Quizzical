@@ -6,14 +6,14 @@ interface CategoryStore {
     id: number;
     name: string;
   }[];
-  selectedCategory: number;
+  selectedCategory: number | null;
   fetchCategories: () => void;
   setSelectedCategory: (category: number) => void;
 }
 
 export const useCategoryStore = create<CategoryStore>(set => ({
   categories: [],
-  selectedCategory: -1,
+  selectedCategory: null,
   fetchCategories: async () => {
     const url = 'https://opentdb.com/api_category.php';
 

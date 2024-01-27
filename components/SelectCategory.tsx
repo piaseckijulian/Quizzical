@@ -19,7 +19,7 @@ const SelectCategory = () => {
   return (
     <select
       className="welcome__category"
-      value={selectedCategory}
+      value={selectedCategory || 0}
       onChange={e => handleSelect(e)}
       aria-label="Select category"
     >
