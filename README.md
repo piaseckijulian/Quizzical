@@ -1,4 +1,4 @@
-# Quizzical - ⭐Trivia Quiz App
+# Quizzical - 🚀Trivia Quiz App
 
 Test your knowledge with our engaging Trivia Quiz App. Challenge yourself with a wide range of categories. Start playing now and become a trivia master!
 
