@@ -1,41 +1,42 @@
-# Quizzical - 🚀Trivia Quiz App
+# 🚀 Quizzical
 
-Test your knowledge with our engaging Trivia Quiz App. Challenge yourself with a wide range of categories. Start playing now and become a trivia master!
+![GitHub Repo stars](https://img.shields.io/github/stars/piaseckijulian/Quizzical?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/piaseckijulian/Quizzical?style=for-the-badge)
+![GitHub watchers](https://img.shields.io/github/watchers/piaseckijulian/Quizzical?style=for-the-badge)
 
-# Home Screen
+Test your knowledge with our engaging Trivia Quiz App. Challenge yourself with a wide range of categories. Start playing now and become a trivia master! 🚀
 
-<img src="./images/home.png" alt="Home Screen"  align="center" />
+<img src="./images/image.png" alt="Image of Quizzical" width="800" height="400" />
 
-<br />
+## 🔗 Links
 
-# Quiz Screen
+- [Live Demo](https://julian-quizzical.vercel.app)
+- [Open Trivia Database API](https://opentdb.com)
 
-<img src="./images/quiz.png" alt="Quiz Screen"  align="center" />
-![Alt text](image.png)
+## 📐 Tech Stack
 
-<br />
+- Next.js
+- Typescript
+- Zustand
+- react-Loader-spinner
+- axios
+- sass
+- he
 
-# About
+## ✨ Usage
 
-I built this project with:
+```bash
+git clone https://github.com/piaseckijulian/Quizzical.git
+cd Quizzical
+pnpm dev
+```
 
-- [Next.js](https://www.npmjs.com/package/next)
-- [Typescript](https://www.npmjs.com/package/typescript)
-- [Zustand](https://www.npmjs.com/package/zustand)
-- [Axios](https://www.npmjs.com/package/axios)
-- [Sass](https://www.npmjs.com/package/sass)
-- [he](https://www.npmjs.com/package/he)
-- [React Loader Spinner](https://www.npmjs.com/package/react-loader-spinner)
+That's it! - You're good to go. You can add new features, fix bugs etc.
 
-## API
+## 🌐 Contribution
 
-- [Open Trivia Database](https://opentdb.com/)
-- Endpoint: https://opentdb.com/api.php?amount=5
+If you want to contribute to this amazing project simply raise an **Issue** when you found a bug or you are requesting a new feature. However if you want to do it yourself create a **Pull Request**.
 
-# [Live Demo](https://julian-quizzical.vercel.app)
+## ⭐ Credits
 
-# Credits
-
-This is the Final Project of **[Bob Ziroll](https://twitter.com/bobziroll)**'s **[React Course](https://scrimba.com/learn/learnreact)** on **[Scrimba](https://scrimba.com)**
-
-[Design Files](https://scrimba.com/links/figma-quizzical)
+This is the Final Solo Project of [Bob Ziroll's](https://twitter.com/bobziroll) [React Course](https://scrimba.com/learn/learnreact)

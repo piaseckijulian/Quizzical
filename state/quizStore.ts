@@ -1,5 +1,6 @@
 import { shuffle } from '@/utils';
 import axios from 'axios';
+import { decode } from 'he';
 import { create } from 'zustand';
 
 interface QuizStore {
@@ -47,7 +48,7 @@ export const useQuizStore = create<QuizStore>((set, _, state) => ({
           id: index,
           question,
           allAnswers: shuffle([correct_answer, ...incorrect_answers]),
-          correctAnswer: correct_answer,
+          correctAnswer: decode(correct_answer),
           userAnswer: ''
         }))
       });
