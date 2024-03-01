@@ -18,7 +18,7 @@ Test your knowledge with our engaging Trivia Quiz App. Challenge yourself with a
 - Next.js
 - Typescript
 - Zustand
-- react-Loader-spinner
+- react-loader-spinner
 - axios
 - sass
 - he
