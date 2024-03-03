@@ -28,7 +28,7 @@ dependencies:
     version: 1.71.1
   zustand:
     specifier: ^4.5.1
-    version: 4.5.1(@types/react@18.2.19)(react@18.2.0)
+    version: 4.5.1(@types/react@18.2.61)(react@18.2.0)
 
 devDependencies:
   '@types/he':
@@ -38,8 +38,8 @@ devDependencies:
     specifier: 20.4.9
     version: 20.4.9
   '@types/react':
-    specifier: 18.2.19
-    version: 18.2.19
+    specifier: 18.2.61
+    version: 18.2.61
   '@types/react-dom':
     specifier: 18.2.19
     version: 18.2.19
@@ -168,11 +168,11 @@ packages:
   /@types/react-dom@18.2.19:
     resolution: {integrity: sha512-aZvQL6uUbIJpjZk4U8JZGbau9KDeAwMfmhyWorxgBkqDIEf6ROjRozcmPIicqsUwPUjbkDfHKgGee1Lq65APcA==}
     dependencies:
-      '@types/react': 18.2.19
+      '@types/react': 18.2.61
     dev: true
 
-  /@types/react@18.2.19:
-    resolution: {integrity: sha512-e2S8wmY1ePfM517PqCG80CcE48Xs5k0pwJzuDZsfE8IZRRBfOMCF+XqnFxu6mWtyivum1MQm4aco+WIt6Coimw==}
+  /@types/react@18.2.61:
+    resolution: {integrity: sha512-NURTN0qNnJa7O/k4XUkEW2yfygA+NxS0V5h1+kp9jPwhzZy95q3ADoGMP0+JypMhrZBTTgjKAUlTctde1zzeQA==}
     dependencies:
       '@types/prop-types': 15.7.11
       '@types/scheduler': 0.16.8
@@ -604,7 +604,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /zustand@4.5.1(@types/react@18.2.19)(react@18.2.0):
+  /zustand@4.5.1(@types/react@18.2.61)(react@18.2.0):
     resolution: {integrity: sha512-XlauQmH64xXSC1qGYNv00ODaQ3B+tNPoy22jv2diYiP4eoDKr9LA+Bh5Bc3gplTrFdb6JVI+N4kc1DZ/tbtfPg==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -619,7 +619,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@types/react': 18.2.19
+      '@types/react': 18.2.61
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
