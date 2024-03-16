@@ -1,4 +1,6 @@
-import { Blob, Button, SelectCategory } from '@/components';
+import Blob from '@/components/Blob';
+import Button from '@/components/Button';
+import SelectCategory from '@/components/SelectCategory';
 
 const Home = () => {
   return (

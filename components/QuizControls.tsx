@@ -1,5 +1,5 @@
 import { useQuizStore } from '@/state/quizStore';
-import { Button } from '@/components';
+import Button from './Button';
 
 const QuizControls = () => {
   const { score, showResults } = useQuizStore(state => ({

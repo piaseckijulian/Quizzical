@@ -1,6 +1,9 @@
 'use client';
 
-import { Blob, Question, QuizControls, Spinner } from '@/components';
+import Blob from '@/components/Blob';
+import Question from '@/components/Question';
+import QuizControls from '@/components/QuizControls';
+import Spinner from '@/components/Spinner';
 import { useCategoryStore } from '@/state/categoryStore';
 import { useQuizStore } from '@/state/quizStore';
 import { redirect } from 'next/navigation';
