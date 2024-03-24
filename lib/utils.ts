@@ -3,11 +3,16 @@ import { type Metadata } from 'next';
 export const createMetadata = (
   title: string,
   description: string,
-  image: string
+  image: string,
+  url: URL
 ): Metadata => ({
   title,
   description,
-  openGraph: { title, description, images: [{ url: image }] },
+  openGraph: {title,
+    description,
+    images: [{ url: image }],
+    url
+  },
   twitter: {
     card: 'summary_large_image',
     title,
@@ -16,7 +21,7 @@ export const createMetadata = (
     creator: '@piaseckijulian'
   },
   icons: ['/favicon.ico'],
-  metadataBase: new URL('https://julian-quizzical.vercel.app')
+  metadataBase: url
 });
 
 export const shuffle = (array: any[]) => {
