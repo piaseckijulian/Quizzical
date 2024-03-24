@@ -6,7 +6,7 @@
 
 Test your knowledge with our engaging Trivia Quiz App. Challenge yourself with a wide range of categories. Start playing now and become a trivia master! 🚀
 
-<img src="./images/image.png" alt="Image of Quizzical" width="800" height="400" />
+<img src="./public/thumbnail.png" alt="Image of Quizzical" width="800" height="400" />
 
 ## 🔗 Links
 

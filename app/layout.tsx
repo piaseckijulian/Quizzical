@@ -8,7 +8,7 @@ import { type PropsWithChildren } from 'react';
 export const metadata: Metadata = createMetadata(
   'Quizzical',
   'Test your knowledge with our engaging Quiz App. Challenge yourself with a wide range of categories. Start playing now and become a quiz master!',
-  '/images/image.png'
+  '/thumbnail.png'
 );
 
 const RootLayout = ({ children }: PropsWithChildren) => (
