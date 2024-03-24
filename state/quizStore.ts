@@ -1,4 +1,4 @@
-import { shuffle } from '@/utils';
+import { shuffle } from '@/lib/utils';
 import axios from 'axios';
 import { decode } from 'he';
 import { create } from 'zustand';
