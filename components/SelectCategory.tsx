@@ -9,7 +9,7 @@ const SelectCategory = () => {
 
   useEffect(() => {
     fetchCategories();
-  }, []);
+  }, [fetchCategories]);
 
   const handleSelect = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectedCategory(parseInt(e.target.value));

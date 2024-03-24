@@ -38,7 +38,7 @@ const Button = ({ type }: Props) => {
     if (Object.keys(quizData).length === 0) return;
 
     quizData.every(({ userAnswer }) => userAnswer !== '') && enableCheckAnswersBtn();
-  }, [quizData]);
+  }, [quizData, enableCheckAnswersBtn]);
 
   const handleCategory = () => {
     if (selectedCategory === null) setSelectedCategory(0);

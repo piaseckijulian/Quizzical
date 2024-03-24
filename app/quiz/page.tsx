@@ -21,7 +21,7 @@ const QuizPage = () => {
 
   useEffect(() => {
     fetchQuiz(selectedCategory);
-  }, []);
+  }, [fetchQuiz, selectedCategory]);
 
   return (
     <main className="container">
