@@ -1,8 +1,7 @@
 'use client';
 
 import { useCategoryStore } from '@/state/categoryStore';
-import type { ChangeEvent } from 'react';
-import { useEffect } from 'react';
+import { useEffect, type ChangeEvent } from 'react';
 
 const SelectCategory = () => {
   const { categories, selectedCategory, fetchCategories, setSelectedCategory } =
