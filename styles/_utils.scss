@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btn {
+  background-color: $primary;
+  color: $secondary;
+  font-weight: 500;
+  font-size: 2rem;
+  border: none;
+  border-radius: 2rem;
+  padding: 2rem 6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  max-width: fit-content;
+
+  &:hover {
+    background-color: $primary-dimmed;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+
+    &:hover {
+      background-color: $primary;
+    }
+  }
+
+  @media (max-width: 60em) {
+    font-size: 1.6rem;
+    padding: 2rem 4rem;
+  }
+
+  @media (max-width: 46em) {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.6rem;
+  }
+}
+
+.blob__left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.blob__right {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.blob {
+  width: 21rem;
+  height: 21rem;
+
+  @media (max-width: 87em) {
+    width: 14rem;
+    height: 14rem;
+  }
+
+  @media (max-width: 46em) {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  @media (max-width: 30em) {
+    width: 7rem;
+    height: 7rem;
+  }
+}
+
+.blob__quiz {
+  width: 13rem;
+  height: 13rem;
+
+  @media (max-width: 87em) {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  @media (max-width: 60em) {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  @media (max-width: 30em) {
+    display: none;
+  }
+}
