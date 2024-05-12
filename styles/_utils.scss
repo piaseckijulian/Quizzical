@@ -12,11 +12,12 @@
   font-size: 2rem;
   border: none;
   border-radius: 2rem;
-  padding: 2rem 6rem;
+  padding: 2rem 4rem;
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-block;
   text-align: center;
+  max-width: -moz-fit-content;
   max-width: fit-content;
 
   &:hover {
@@ -29,11 +30,6 @@
     &:hover {
       background-color: $primary;
     }
-  }
-
-  @media (max-width: 60em) {
-    font-size: 1.6rem;
-    padding: 2rem 4rem;
   }
 
   @media (max-width: 46em) {

@@ -9,23 +9,22 @@ interface Props {
 }
 
 const Answer = ({ answer, name, id }: Props) => {
-  const { quizData, answerSelect, showResults } = useQuizStore(state => ({
-    quizData: state.quizData,
-    answerSelect: state.answerSelect,
-    showResults: state.showResults
-  }));
+  const { quizData, answerSelect, isShowingAnswers } = useQuizStore();
+
+  const correctAnswer = quizData[id].correct_answer;
 
   const handleChange = () => {
     answerSelect(id, answer);
   };
 
-  const isCorrectAnswer = answer === quizData[id].correctAnswer;
+  const isCorrectAnswer = answer === correctAnswer;
 
   let answerClass = '';
-  if (showResults) {
+
+  if (isShowingAnswers) {
     if (isCorrectAnswer) {
       answerClass = 'quiz__answers-label-correct';
-    } else if (!isCorrectAnswer && answer === quizData[id].userAnswer) {
+    } else if (!isCorrectAnswer && answer === quizData[id].user_answer) {
       answerClass = 'quiz__answers-label-incorrect';
     } else {
       answerClass = 'quiz__answers-label-other';
@@ -40,8 +39,8 @@ const Answer = ({ answer, name, id }: Props) => {
         value={answer}
         className="quiz__answers-radio"
         onChange={handleChange}
-        checked={quizData[id].userAnswer === answer}
-        disabled={showResults}
+        checked={quizData[id].user_answer === answer}
+        disabled={isShowingAnswers}
       />
       {answer}
     </label>

@@ -1,20 +1,21 @@
+import blobLeft from '@/app/assets/blob-left.svg';
+import blobRight from '@/app/assets/blob-right.svg';
 import Image from 'next/image';
 
 interface Props {
-  direction: 'right' | 'left';
-  isQuiz?: boolean;
+  side: 'right' | 'left';
+  quiz?: boolean;
 }
 
-const Blob = ({ direction, isQuiz }: Props) => {
+const Blob = ({ side, quiz }: Props) => {
   return (
-    <div className={`blob__${direction}`}>
+    <div className={`blob__${side}`}>
       <Image
-        src={`/assets/blob-${direction}.svg`}
+        src={side === 'left' ? blobLeft : blobRight}
         alt=""
-        className={`blob ${isQuiz ? 'blob__quiz' : ''}`}
-        width={isQuiz ? 130 : 210}
-        height={isQuiz ? 130 : 210}
-        priority={isQuiz && direction === 'left'}
+        width={quiz ? 130 : 210}
+        height={quiz ? 130 : 210}
+        className={`blob ${quiz ? 'blob__quiz' : ''}`}
       />
     </div>
   );

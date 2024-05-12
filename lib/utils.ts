@@ -20,7 +20,7 @@ export const createMetadata = (
   metadataBase: url
 });
 
-export const shuffle = (array: any[]) => {
+export const shuffle = <T>(array: T[]) => {
   for (let i = array.length - 1; i >= 0; i--) {
     const randomIndex = Math.floor(Math.random() * (i + 1));
     array.push(array[randomIndex]);

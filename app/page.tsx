@@ -1,19 +1,22 @@
 import Blob from '@/components/Blob';
-import Button from '@/components/Button';
+import HomeButton from '@/components/HomeButton';
 import SelectCategory from '@/components/SelectCategory';
+import { getCategories } from '@/lib/queries';
 
-const Home = () => {
+const Home = async () => {
+  const categories = await getCategories();
+
   return (
-    <main className="welcome container">
-      <Blob direction="left" />
-      <Blob direction="right" />
+    <main className="home container">
+      <Blob side="left" />
+      <Blob side="right" />
 
-      <h1 className="welcome__heading">Quizzical</h1>
-      <p className="welcome__desc">Test your knowledge!</p>
+      <h1 className="home__heading">Quizzical</h1>
+      <p className="home__info">Test your knowledge!</p>
 
-      <SelectCategory />
+      <SelectCategory categories={categories} />
 
-      <Button type="start" />
+      <HomeButton />
     </main>
   );
 };

@@ -1,25 +1,29 @@
 'use client';
 
 import { useCategoryStore } from '@/store/categoryStore';
-import { useEffect, type ChangeEvent } from 'react';
+import { type ChangeEvent } from 'react';
 
-const SelectCategory = () => {
-  const { categories, selectedCategory, fetchCategories, setSelectedCategory } =
-    useCategoryStore();
+interface Props {
+  categories: {
+    id: number;
+    name: string;
+  }[];
+}
 
-  useEffect(() => {
-    fetchCategories();
-  }, [fetchCategories]);
+const SelectCategory = ({ categories }: Props) => {
+  const { selectedCategory, setSelectedCategory } = useCategoryStore();
 
-  const handleSelect = (e: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCategory(parseInt(e.target.value));
+  const handleCategorySelect = (e: ChangeEvent<HTMLSelectElement>) => {
+    const category = parseInt(e.target.value);
+
+    setSelectedCategory(category);
   };
 
   return (
     <select
-      className="welcome__category"
       value={selectedCategory || 0}
-      onChange={e => handleSelect(e)}
+      onChange={handleCategorySelect}
+      className="home__select-category"
       aria-label="Select category"
     >
       {categories.map(({ id, name }) => (

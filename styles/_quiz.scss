@@ -3,6 +3,14 @@
   max-width: 130rem;
   min-height: 100vh;
 
+  &__loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100dvh;
+  }
+
   &__question {
     font-size: 3.8rem;
     line-height: 1.4;
@@ -19,14 +27,14 @@
     }
   }
 
-  &__line {
+  &__separator {
     background-color: $line-clr;
     height: 0.3rem;
     border: none;
     margin-bottom: 3rem;
   }
 
-  &__controls {
+  &__info {
     display: flex;
     justify-content: center;
     align-items: center;
