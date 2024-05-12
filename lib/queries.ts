@@ -19,6 +19,6 @@ export const getCategories = async () => {
 
     return categories;
   } catch (error) {
-    throw error;
+    throw new Error(error as string);
   }
 };
