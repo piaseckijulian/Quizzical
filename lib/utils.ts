@@ -1,4 +1,6 @@
+import { clsx, type ClassValue } from 'clsx';
 import { type Metadata } from 'next';
+import { twMerge } from 'tailwind-merge';
 
 export const createMetadata = (
   title: string,
@@ -34,3 +36,7 @@ export const shuffle = <T>(array: T[]) => {
   }
   return array;
 };
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}

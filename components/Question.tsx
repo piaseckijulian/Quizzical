@@ -1,23 +1,25 @@
-import { QuizData } from '@/types';
-import { decode } from 'he';
-import { useId } from 'react';
 import Answer from './Answer';
 
 interface Props {
   id: number;
-  data: QuizData;
+  question: string;
+  answers: string[];
+  correctAnswer: string;
 }
 
-const Question = ({ id, data }: Props) => {
-  const name = useId();
-
+const Question = ({ id, question, answers, correctAnswer }: Props) => {
   return (
     <>
-      <h2 className="quiz__question">{decode(data.question)}</h2>
+      <h2 className="quiz__question">{question}</h2>
 
       <div className="quiz__answers">
-        {data.all_answers.map((answer, index) => (
-          <Answer key={index} name={name} id={id} answer={decode(answer)} />
+        {answers.map((answer, index) => (
+          <Answer
+            key={index}
+            questionId={id}
+            answer={answer}
+            correctAnswer={correctAnswer}
+          />
         ))}
       </div>
 

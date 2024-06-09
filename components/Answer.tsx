@@ -1,30 +1,29 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { useQuizStore } from '@/store/quizStore';
 
 interface Props {
+  questionId: number;
   answer: string;
-  name: string;
-  id: number;
+  correctAnswer: string;
 }
 
-const Answer = ({ answer, name, id }: Props) => {
-  const { quizData, answerSelect, isShowingAnswers } = useQuizStore();
-
-  const correctAnswer = quizData[id].correct_answer;
+const Answer = ({ questionId, answer, correctAnswer }: Props) => {
+  const { userAnswers, answerSelect, isShowingAnswers } = useQuizStore();
 
   const handleChange = () => {
-    answerSelect(id, answer);
+    answerSelect(questionId, answer);
   };
-
-  const isCorrectAnswer = answer === correctAnswer;
 
   let answerClass = '';
 
   if (isShowingAnswers) {
+    const isCorrectAnswer = answer === correctAnswer;
+
     if (isCorrectAnswer) {
       answerClass = 'quiz__answers-label-correct';
-    } else if (!isCorrectAnswer && answer === quizData[id].user_answer) {
+    } else if (!isCorrectAnswer && answer === userAnswers[questionId]) {
       answerClass = 'quiz__answers-label-incorrect';
     } else {
       answerClass = 'quiz__answers-label-other';
@@ -32,14 +31,14 @@ const Answer = ({ answer, name, id }: Props) => {
   }
 
   return (
-    <label className={`${answerClass} quiz__answers-label`}>
+    <label className={cn('quiz__answers-label', answerClass)}>
       <input
         type="radio"
-        name={name}
         value={answer}
-        className="quiz__answers-radio"
+        name={questionId.toString()}
         onChange={handleChange}
-        checked={quizData[id].user_answer === answer}
+        className="quiz__answers-radio"
+        checked={answer === userAnswers[questionId]}
         disabled={isShowingAnswers}
       />
       {answer}

@@ -4,42 +4,33 @@ import { useQuizStore } from '@/store/quizStore';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-const QuizInfo = () => {
-  const { quizData, isShowingAnswers, resetQuiz, showAnswers } = useQuizStore();
+interface Props {
+  allCorrectAnswers: string[];
+}
 
-  const [isCheckAnswersBtnDisabled, setIsCheckAnswersBtnDisabled] =
-    useState(true);
-  const [score, setScore] = useState(0);
+const QuizInfo = ({ allCorrectAnswers }: Props) => {
+  const { userAnswers, isShowingAnswers, resetQuiz, showAnswers } =
+    useQuizStore();
 
   const router = useRouter();
+  const [score, setScore] = useState(0);
+
+  // Disabled if some questions still not answered
+  const isCheckAnswersBtnDisabled = userAnswers.some(answer => !answer);
 
   useEffect(() => {
-    if (quizData.length === 0) return;
-
-    if (quizData.every(data => data.user_answer)) {
-      setIsCheckAnswersBtnDisabled(false);
+    if (isShowingAnswers) {
+      userAnswers.forEach((answer, index) => {
+        if (answer === allCorrectAnswers[index]) setScore(prev => prev + 1);
+      });
     }
-  }, [quizData]);
-
-  useEffect(() => {
-    if (quizData.length === 0 || !isShowingAnswers) return;
-
-    quizData.forEach(data => {
-      if (data.correct_answer === data.user_answer) {
-        setScore(prev => prev + 1);
-      }
-    });
-  }, [quizData, isShowingAnswers]);
+  }, [isShowingAnswers, allCorrectAnswers, userAnswers]);
 
   const handleNewGame = () => {
     resetQuiz();
     setScore(0);
-    setIsCheckAnswersBtnDisabled(true);
-    router.push('/');
-  };
 
-  const handleShowAnswers = () => {
-    showAnswers();
+    router.push('/');
   };
 
   return (
@@ -50,8 +41,8 @@ const QuizInfo = () => {
 
       <button
         className="btn"
+        onClick={isShowingAnswers ? handleNewGame : showAnswers}
         disabled={isCheckAnswersBtnDisabled}
-        onClick={isShowingAnswers ? handleNewGame : handleShowAnswers}
       >
         {isShowingAnswers ? 'Play again' : 'Check answers'}
       </button>

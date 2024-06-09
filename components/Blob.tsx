@@ -1,5 +1,6 @@
 import blobLeft from '@/app/assets/blob-left.svg';
 import blobRight from '@/app/assets/blob-right.svg';
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
 
 interface Props {
@@ -15,7 +16,7 @@ const Blob = ({ side, quiz }: Props) => {
         alt=""
         width={quiz ? 130 : 210}
         height={quiz ? 130 : 210}
-        className={`blob ${quiz ? 'blob__quiz' : ''}`}
+        className={cn('blob', quiz && 'blob_quiz')}
       />
     </div>
   );

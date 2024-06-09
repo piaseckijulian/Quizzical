@@ -1,11 +1,8 @@
-'use client';
-
 import Blob from '@/components/Blob';
 import Question from '@/components/Question';
 import QuizInfo from '@/components/QuizInfo';
-import { useQuizStore } from '@/store/quizStore';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { getQuiz } from '@/lib/queries';
+import { redirect } from 'next/navigation';
 
 interface Props {
   searchParams: {
@@ -13,17 +10,14 @@ interface Props {
   };
 }
 
-const QuizPage = ({ searchParams }: Props) => {
-  const router = useRouter();
-
+const QuizPage = async ({ searchParams }: Props) => {
   const category = parseInt(searchParams.category);
-  if (isNaN(category)) router.push('/');
+  if (isNaN(category)) {
+    redirect('/');
+  }
 
-  const { quizData, getQuiz } = useQuizStore();
-
-  useEffect(() => {
-    getQuiz(category);
-  }, [category, getQuiz]);
+  const quiz = await getQuiz(category);
+  const allCorrectAnswers = quiz.map(data => data.correct_answer);
 
   return (
     <main className="container">
@@ -31,11 +25,17 @@ const QuizPage = ({ searchParams }: Props) => {
         <Blob side="left" quiz />
         <Blob side="right" />
 
-        {quizData.map((data, index) => (
-          <Question key={index} id={index} data={data} />
+        {quiz.map((data, index) => (
+          <Question
+            key={index}
+            id={index}
+            question={data.question}
+            answers={data.all_answers}
+            correctAnswer={data.correct_answer}
+          />
         ))}
 
-        <QuizInfo />
+        <QuizInfo allCorrectAnswers={allCorrectAnswers} />
       </div>
     </main>
   );
