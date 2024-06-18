@@ -16,7 +16,7 @@ Test your knowledge with our engaging Trivia Quiz App. Challenge yourself with a
 ## 📐 Tech Stack
 
 - Next.js
-- Typescript
+- TypeScript
 - Zustand
 - React Loader Spinner
 - Axios
