@@ -4,7 +4,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/piaseckijulian/Quizzical?style=for-the-badge)
 ![GitHub watchers](https://img.shields.io/github/watchers/piaseckijulian/Quizzical?style=for-the-badge)
 
-Test your knowledge with our engaging Trivia Quiz App. Challenge yourself with a wide range of categories. Start playing now and become a trivia master! 🚀
+Quizzical is a fun and easy-to-use trivia quiz app where you can test your knowledge on various topics. 🚀
 
 <img src="./public/thumbnail.png" alt="Image of Quizzical" width="800" height="400" />
 
