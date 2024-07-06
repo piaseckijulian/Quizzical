@@ -1,5 +1,5 @@
-import { TailSpin } from 'react-loader-spinner';
+import { TailSpin } from "react-loader-spinner"
 
-const Spinner = () => <TailSpin height={550} width={80} color="#4d5b9e" />;
+const Spinner = () => <TailSpin height={550} width={80} color="#404c82" />
 
-export default Spinner;
+export default Spinner

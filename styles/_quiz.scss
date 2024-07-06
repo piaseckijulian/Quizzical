@@ -1,37 +1,129 @@
 .quiz {
-  padding: 10rem 7.5rem 2rem 7.5rem;
-  max-width: 130rem;
-  min-height: 100vh;
-
   &__loading {
     display: flex;
     justify-content: center;
     align-items: center;
-
     min-height: 100dvh;
   }
 
-  &__question {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  padding: 5rem 7.5rem 2rem;
+  max-width: 140rem;
+  min-height: 100vh;
+
+  @media screen and (max-width: 40em) {
+    padding: 4rem 3.5rem 1rem;
+  }
+
+  @media screen and (max-width: 25em) {
+    padding: 3rem 2rem 1rem;
+  }
+
+  h2 {
     font-size: 3.8rem;
     line-height: 1.4;
     margin-bottom: 3.2rem;
 
-    @media (max-width: 30em) {
-      line-height: 1.2;
+    @media screen and (max-width: 50em) {
+      font-size: 3rem;
+      text-align: center;
+      text-wrap: balance;
     }
 
-    @media (max-width: 46em) {
-      font-size: 3rem;
-      text-wrap: balance;
-      text-align: center;
+    @media screen and (max-width: 30em) {
+      line-height: 1.2;
     }
   }
 
-  &__separator {
-    background-color: $line-clr;
+  hr {
     height: 0.3rem;
     border: none;
     margin-bottom: 3rem;
+    background-color: $line-clr;
+  }
+
+  .answers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    column-gap: 2.2rem;
+
+    @media screen and (max-width: 80em) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 50em) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 1rem 2rem;
+      margin: 0 0 2.6rem 0;
+      border: 0.3rem solid $primary;
+      border-radius: 2rem;
+
+      font-size: 2.4rem;
+      font-weight: 500;
+      text-align: center;
+
+      background-color: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      @media screen and (max-width: 50em) {
+        font-size: 2rem;
+      }
+
+      &:hover {
+        background-color: $answer-hover;
+      }
+
+      &:has(input[type="radio"]:checked) {
+        background-color: $answer-checked;
+        border: 3px solid $answer-checked;
+      }
+
+      &:has(input[type="radio"]:focus) {
+        outline: 0.3rem solid #000;
+        outline-offset: 0.3rem;
+      }
+    }
+
+    .correct,
+    .wrong {
+      border: none !important;
+    }
+
+    .correct {
+      background-color: $correct !important;
+    }
+
+    .wrong {
+      background-color: $wrong !important;
+    }
+
+    .neutral:hover {
+      background-color: transparent !important;
+    }
+
+    .wrong,
+    .neutral {
+      opacity: 0.5 !important;
+    }
+
+    input[type="radio"] {
+      position: fixed;
+      width: 0;
+      opacity: 0;
+    }
   }
 
   &__info {
@@ -40,96 +132,18 @@
     align-items: center;
     gap: 2rem;
 
-    @media (max-width: 46em) {
+    @media screen and (max-width: 50em) {
       display: block;
     }
-  }
 
-  &__score {
-    font-weight: 700;
-    font-size: 2.6rem;
+    p {
+      font-weight: 700;
+      font-size: 2.6rem;
 
-    @media (max-width: 46em) {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-  }
-
-  &__answers {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-content: center;
-    column-gap: 2.2rem;
-
-    @media (max-width: 87em) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: 46em) {
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    &-label {
-      padding: 1rem 2rem;
-      margin: 0 0 2.6rem 0;
-      font-size: 2.4rem;
-      font-weight: 500;
-      text-align: center;
-      background-color: transparent;
-      border: 0.3rem solid $primary;
-      border-radius: 2rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      @media (max-width: 46em) {
-        font-size: 2rem;
-      }
-
-      &:hover {
-        background-color: $answer-hover;
-      }
-
-      &:has(.quiz__answers-radio:checked) {
-        background-color: $answer-checked;
-        border: 3px solid $answer-checked;
-      }
-
-      &-correct,
-      &-incorrect {
-        border: none !important;
-      }
-
-      &-correct {
-        background-color: $correct !important;
-      }
-
-      &-incorrect {
-        background-color: $incorrect !important;
-      }
-
-      &-other:hover {
-        background-color: transparent !important;
-      }
-
-      &-incorrect,
-      &-other {
-        opacity: 0.5 !important;
+      @media screen and (max-width: 50em) {
+        text-align: center;
+        margin-bottom: 1.5rem;
       }
     }
-
-    &-radio {
-      opacity: 0;
-      position: fixed;
-      width: 0;
-    }
-  }
-
-  @media (max-width: 30em) {
-    max-width: 48rem;
-    padding: 5rem 1rem 1rem;
-    text-align: center;
   }
 }

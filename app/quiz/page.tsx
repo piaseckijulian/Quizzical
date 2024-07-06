@@ -1,33 +1,38 @@
-import Blob from '@/components/Blob';
-import Question from '@/components/Question';
-import QuizInfo from '@/components/QuizInfo';
-import { getQuiz } from '@/lib/queries';
-import { redirect } from 'next/navigation';
+import Blob from "@/components/Blob"
+import Question from "@/components/Question"
+import QuizInfo from "@/components/QuizInfo"
+import { getQuiz } from "@/lib/queries"
+import { redirect } from "next/navigation"
 
-interface Props {
+type Props = {
   searchParams: {
-    category: string;
-  };
+    category: string
+  }
 }
 
 const QuizPage = async ({ searchParams }: Props) => {
-  const category = parseInt(searchParams.category);
-  if (isNaN(category)) {
-    redirect('/');
+  const category = Number.parseInt(searchParams.category)
+  if (Number.isNaN(category)) {
+    redirect("/")
   }
 
-  const quiz = await getQuiz(category);
-  const allCorrectAnswers = quiz.map(data => data.correct_answer);
+  const { quiz, error } = await getQuiz(category)
+
+  if (error || !quiz) {
+    redirect("/")
+  }
+
+  const allCorrectAnswers = quiz.map(data => data.correct_answer)
 
   return (
-    <main className="container">
-      <div className="quiz">
+    <div className="quiz__wrapper">
+      <main className="quiz">
         <Blob side="left" quiz />
-        <Blob side="right" />
+        <Blob side="right" quiz />
 
         {quiz.map((data, index) => (
           <Question
-            key={index}
+            key={data.question}
             id={index}
             question={data.question}
             answers={data.all_answers}
@@ -36,9 +41,9 @@ const QuizPage = async ({ searchParams }: Props) => {
         ))}
 
         <QuizInfo allCorrectAnswers={allCorrectAnswers} />
-      </div>
-    </main>
-  );
-};
+      </main>
+    </div>
+  )
+}
 
-export default QuizPage;
+export default QuizPage

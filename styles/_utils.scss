@@ -1,24 +1,20 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 .btn {
+  display: inline-block;
   background-color: $primary;
   color: $secondary;
   font-weight: 500;
-  font-size: 2rem;
+  font-size: 2.1rem;
   border: none;
   border-radius: 2rem;
   padding: 2rem 4rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  display: inline-block;
   text-align: center;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
+
+  &:focus {
+    outline: 0.3rem solid #000;
+    outline-offset: 0.3rem;
+  }
 
   &:hover {
     background-color: $primary-dimmed;
@@ -32,9 +28,14 @@
     }
   }
 
-  @media (max-width: 46em) {
+  @media screen and (max-width: 50em) {
     display: block;
     margin: 0 auto;
+  }
+
+  @media screen and (max-width: 30em) {
+    padding: 1.3rem 2.6rem;
+    border-radius: 1.3rem;
     font-size: 1.6rem;
   }
 }
@@ -52,20 +53,25 @@
 }
 
 .blob {
-  width: 21rem;
-  height: 21rem;
+  width: 20rem;
+  height: 20rem;
 
-  @media (max-width: 87em) {
-    width: 14rem;
-    height: 14rem;
+  @media screen and (max-width: 50em) {
+    width: 15rem;
+    height: 15rem;
   }
 
-  @media (max-width: 46em) {
-    width: 10rem;
-    height: 10rem;
+  @media screen and (max-width: 30em) {
+    width: 8rem;
+    height: 8rem;
   }
 
-  @media (max-width: 30em) {
+  @media screen and (max-width: 27em) {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  @media screen and (max-height: 15rem) {
     width: 7rem;
     height: 7rem;
   }
@@ -75,17 +81,12 @@
   width: 13rem;
   height: 13rem;
 
-  @media (max-width: 87em) {
+  @media screen and (max-width: 80em) {
     width: 10rem;
     height: 10rem;
   }
 
-  @media (max-width: 60em) {
-    width: 7rem;
-    height: 7rem;
-  }
-
-  @media (max-width: 30em) {
+  @media screen and (max-width: 30em) {
     display: none;
   }
 }

@@ -1,29 +1,28 @@
-'use client';
+"use client"
 
-import { useCategoryStore } from '@/store/categoryStore';
-import { type ChangeEvent } from 'react';
+import { useCategoryStore } from "@/store/categoryStore"
+import type { ChangeEvent } from "react"
 
-interface Props {
+type Props = {
   categories: {
-    id: number;
-    name: string;
-  }[];
+    id: number
+    name: string
+  }[]
 }
 
 const SelectCategory = ({ categories }: Props) => {
-  const { selectedCategory, setSelectedCategory } = useCategoryStore();
+  const { selectedCategory, setSelectedCategory } = useCategoryStore()
 
   const handleCategorySelect = (e: ChangeEvent<HTMLSelectElement>) => {
-    const category = parseInt(e.target.value);
+    const category = Number.parseInt(e.target.value)
 
-    setSelectedCategory(category);
-  };
+    setSelectedCategory(category)
+  }
 
   return (
     <select
       value={selectedCategory || 0}
       onChange={handleCategorySelect}
-      className="home__select-category"
       aria-label="Select category"
     >
       {categories.map(({ id, name }) => (
@@ -32,7 +31,7 @@ const SelectCategory = ({ categories }: Props) => {
         </option>
       ))}
     </select>
-  );
-};
+  )
+}
 
-export default SelectCategory;
+export default SelectCategory

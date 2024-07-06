@@ -1,21 +1,21 @@
-import Answer from './Answer';
+import Answer from "./Answer"
 
-interface Props {
-  id: number;
-  question: string;
-  answers: string[];
-  correctAnswer: string;
+type Props = {
+  id: number
+  question: string
+  answers: string[]
+  correctAnswer: string
 }
 
 const Question = ({ id, question, answers, correctAnswer }: Props) => {
   return (
     <>
-      <h2 className="quiz__question">{question}</h2>
+      <h2>{question}</h2>
 
-      <div className="quiz__answers">
-        {answers.map((answer, index) => (
+      <div className="answers">
+        {answers.map(answer => (
           <Answer
-            key={index}
+            key={answer}
             questionId={id}
             answer={answer}
             correctAnswer={correctAnswer}
@@ -23,9 +23,9 @@ const Question = ({ id, question, answers, correctAnswer }: Props) => {
         ))}
       </div>
 
-      <hr className="quiz__separator" />
+      <hr />
     </>
-  );
-};
+  )
+}
 
-export default Question;
+export default Question
