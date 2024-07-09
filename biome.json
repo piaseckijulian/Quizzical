@@ -3,7 +3,6 @@
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-    "lineEnding": "lf",
     "ignore": [".next"]
   },
   "organizeImports": {
@@ -17,9 +16,7 @@
   },
   "javascript": {
     "formatter": {
-      "semicolons": "asNeeded",
-      "trailingCommas": "none",
-      "arrowParentheses": "asNeeded"
+      "semicolons": "asNeeded"
     }
   }
 }

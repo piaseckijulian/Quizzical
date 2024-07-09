@@ -13,7 +13,7 @@ const Question = ({ id, question, answers, correctAnswer }: Props) => {
       <h2>{question}</h2>
 
       <div className="answers">
-        {answers.map(answer => (
+        {answers.map((answer) => (
           <Answer
             key={answer}
             questionId={id}

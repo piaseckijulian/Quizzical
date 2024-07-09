@@ -22,7 +22,7 @@ const QuizPage = async ({ searchParams }: Props) => {
     redirect("/")
   }
 
-  const allCorrectAnswers = quiz.map(data => data.correct_answer)
+  const allCorrectAnswers = quiz.map((data) => data.correct_answer)
 
   return (
     <div className="quiz__wrapper">

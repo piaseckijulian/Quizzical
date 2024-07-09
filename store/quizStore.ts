@@ -8,15 +8,15 @@ type QuizStore = {
   resetQuiz: () => void
 }
 
-export const useQuizStore = create<QuizStore>(set => ({
+export const useQuizStore = create<QuizStore>((set) => ({
   userAnswers: new Array(5).fill(null),
   isShowingAnswers: false,
   isCheckAnswersBtnDisabled: true,
   answerSelect: (questionId, newAnswer) => {
-    set(state => ({
+    set((state) => ({
       userAnswers: state.userAnswers.map((answer, index) =>
-        questionId === index ? newAnswer : answer
-      )
+        questionId === index ? newAnswer : answer,
+      ),
     }))
   },
   showAnswers: () => {
@@ -25,7 +25,7 @@ export const useQuizStore = create<QuizStore>(set => ({
   resetQuiz: () => {
     set({
       userAnswers: new Array(5).fill(null),
-      isShowingAnswers: false
+      isShowingAnswers: false,
     })
-  }
+  },
 }))

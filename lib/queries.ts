@@ -53,14 +53,14 @@ export const getQuiz = async (category: number) => {
       return { error: true }
     }
 
-    const quiz = data.results.map(result => ({
+    const quiz = data.results.map((result) => ({
       ...result,
       question: decode(result.question),
       all_answers: shuffle([
-        ...result.incorrect_answers.map(answer => decode(answer)),
-        decode(result.correct_answer)
+        ...result.incorrect_answers.map((answer) => decode(answer)),
+        decode(result.correct_answer),
       ]),
-      correct_answer: decode(result.correct_answer)
+      correct_answer: decode(result.correct_answer),
     }))
 
     return { quiz }

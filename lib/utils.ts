@@ -15,16 +15,16 @@ export const createMetadata = (): Metadata => ({
     title,
     description,
     images: image,
-    card: "summary_large_image"
+    card: "summary_large_image",
   },
   openGraph: {
     title,
     description,
     url,
     images: image,
-    siteName: title
+    siteName: title,
   },
-  metadataBase: url
+  metadataBase: url,
 })
 
 export const shuffle = <T>(array: T[]) => {

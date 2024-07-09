@@ -16,12 +16,12 @@ const QuizInfo = ({ allCorrectAnswers }: Props) => {
   const [score, setScore] = useState(0)
 
   // Disabled if some questions still not answered
-  const isCheckAnswersBtnDisabled = userAnswers.some(answer => !answer)
+  const isCheckAnswersBtnDisabled = userAnswers.some((answer) => !answer)
 
   useEffect(() => {
     if (isShowingAnswers) {
       userAnswers.forEach((answer, index) => {
-        if (answer === allCorrectAnswers[index]) setScore(prev => prev + 1)
+        if (answer === allCorrectAnswers[index]) setScore((prev) => prev + 1)
       })
     }
   }, [isShowingAnswers, allCorrectAnswers, userAnswers])

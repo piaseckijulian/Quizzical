@@ -23,8 +23,8 @@ const Answer = ({ questionId, answer, correctAnswer }: Props) => {
           correct: answer === correctAnswer,
           wrong: answer !== correctAnswer && answer === userAnswers[questionId],
           neutral:
-            answer !== correctAnswer && answer !== userAnswers[questionId]
-        }
+            answer !== correctAnswer && answer !== userAnswers[questionId],
+        },
       )}
     >
       <input
