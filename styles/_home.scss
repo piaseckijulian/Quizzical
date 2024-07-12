@@ -42,7 +42,7 @@
     -webkit-appearance: none;
     appearance: none;
 
-    &:focus {
+    &:focus-visible {
       outline: 0.2rem solid #000;
       outline-offset: 0.2rem;
     }

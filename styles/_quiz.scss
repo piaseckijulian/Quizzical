@@ -91,7 +91,7 @@
         border: 3px solid $answer-checked;
       }
 
-      &:has(input[type="radio"]:focus) {
+      &:has(input[type="radio"]:focus-visible) {
         outline: 0.3rem solid #000;
         outline-offset: 0.3rem;
       }
