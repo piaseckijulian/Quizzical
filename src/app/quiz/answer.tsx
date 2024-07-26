@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { useQuizStore } from "@/store/quizStore"
+import { useQuizStore } from "@/stores/quizStore"
 
 type Props = {
   questionId: number

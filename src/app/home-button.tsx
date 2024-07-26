@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/button"
-import { useCategoryStore } from "@/store/categoryStore"
+import { useCategoryStore } from "@/stores/categoryStore"
 
 export const HomeButton = () => {
   const { selectedCategory } = useCategoryStore()

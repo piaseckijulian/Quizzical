@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/button"
-import { useQuizStore } from "@/store/quizStore"
+import { useQuizStore } from "@/stores/quizStore"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 

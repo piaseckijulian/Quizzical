@@ -1,6 +1,6 @@
 "use client"
 
-import { useCategoryStore } from "@/store/categoryStore"
+import { useCategoryStore } from "@/stores/categoryStore"
 import type { ChangeEvent } from "react"
 
 type Props = {
