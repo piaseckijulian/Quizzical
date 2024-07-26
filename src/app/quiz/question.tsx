@@ -1,4 +1,4 @@
-import Answer from "./Answer"
+import { Answer } from "./answer"
 
 type Props = {
   id: number
@@ -7,7 +7,7 @@ type Props = {
   correctAnswer: string
 }
 
-const Question = ({ id, question, answers, correctAnswer }: Props) => {
+export const Question = ({ id, question, answers, correctAnswer }: Props) => {
   return (
     <>
       <h2>{question}</h2>
@@ -27,5 +27,3 @@ const Question = ({ id, question, answers, correctAnswer }: Props) => {
     </>
   )
 }
-
-export default Question

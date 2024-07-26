@@ -6,7 +6,7 @@ type Props = {
   isQuiz?: boolean
 }
 
-const Blob = ({ side, isQuiz }: Props) => {
+export const Blob = ({ side, isQuiz }: Props) => {
   return (
     <Image
       src={`/assets/blob-${side}.svg`}
@@ -17,5 +17,3 @@ const Blob = ({ side, isQuiz }: Props) => {
     />
   )
 }
-
-export default Blob

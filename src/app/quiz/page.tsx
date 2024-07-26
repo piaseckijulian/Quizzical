@@ -1,8 +1,8 @@
-import Blob from "@/components/Blob"
-import Question from "@/components/Question"
-import QuizInfo from "@/components/QuizInfo"
+import { Blob } from "@/components/blob"
 import { getQuiz } from "@/lib/queries"
 import { redirect } from "next/navigation"
+import { Question } from "./question"
+import { QuizInfo } from "./quiz-info"
 
 type Props = {
   searchParams: {

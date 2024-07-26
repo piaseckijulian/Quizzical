@@ -9,8 +9,8 @@ type Props = {
   correctAnswer: string
 }
 
-const Answer = ({ questionId, answer, correctAnswer }: Props) => {
-  const { userAnswers, answerSelect, isShowingAnswers } = useQuizStore()
+export const Answer = ({ questionId, answer, correctAnswer }: Props) => {
+  const { userAnswers, isShowingAnswers, answerSelect } = useQuizStore()
 
   const handleChange = () => {
     answerSelect(questionId, answer)
@@ -39,5 +39,3 @@ const Answer = ({ questionId, answer, correctAnswer }: Props) => {
     </label>
   )
 }
-
-export default Answer

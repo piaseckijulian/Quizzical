@@ -10,7 +10,7 @@ type Props = {
   }[]
 }
 
-const SelectCategory = ({ categories }: Props) => {
+export const SelectCategory = ({ categories }: Props) => {
   const { selectedCategory, setSelectedCategory } = useCategoryStore()
 
   const handleCategorySelect = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -33,5 +33,3 @@ const SelectCategory = ({ categories }: Props) => {
     </select>
   )
 }
-
-export default SelectCategory

@@ -1,7 +1,7 @@
-import Blob from "@/components/Blob"
-import HomeButton from "@/components/HomeButton"
-import SelectCategory from "@/components/SelectCategory"
+import { Blob } from "@/components/blob"
 import { getCategories } from "@/lib/queries"
+import { HomeButton } from "./home-button"
+import { SelectCategory } from "./select-category"
 
 const Home = async () => {
   const categories = await getCategories()

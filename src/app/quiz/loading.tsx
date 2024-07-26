@@ -1,11 +1,11 @@
 "use client"
 
-import Spinner from "@/components/Spinner"
+import { TailSpin } from "react-loader-spinner"
 
 const Loading = () => {
   return (
     <main className="quiz__loading">
-      <Spinner />
+      <TailSpin height={550} width={80} color="#404c82" />
     </main>
   )
 }

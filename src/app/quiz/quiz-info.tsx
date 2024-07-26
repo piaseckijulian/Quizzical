@@ -1,5 +1,6 @@
 "use client"
 
+import { Button } from "@/components/button"
 import { useQuizStore } from "@/store/quizStore"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -8,7 +9,7 @@ type Props = {
   allCorrectAnswers: string[]
 }
 
-const QuizInfo = ({ allCorrectAnswers }: Props) => {
+export const QuizInfo = ({ allCorrectAnswers }: Props) => {
   const { userAnswers, isShowingAnswers, resetQuiz, showAnswers } =
     useQuizStore()
 
@@ -37,16 +38,13 @@ const QuizInfo = ({ allCorrectAnswers }: Props) => {
     <div className="quiz__info">
       {isShowingAnswers && <p>You scored {score}/5 correct answers</p>}
 
-      <button
+      <Button
         type="button"
-        className="btn"
         onClick={isShowingAnswers ? handleNewGame : showAnswers}
         disabled={isCheckAnswersBtnDisabled}
       >
         {isShowingAnswers ? "Play again" : "Check answers"}
-      </button>
+      </Button>
     </div>
   )
 }
-
-export default QuizInfo
