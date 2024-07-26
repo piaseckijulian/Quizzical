@@ -27,8 +27,8 @@ const QuizPage = async ({ searchParams }: Props) => {
   return (
     <div className="quiz__wrapper">
       <main className="quiz">
-        <Blob side="left" quiz />
-        <Blob side="right" quiz />
+        <Blob side="left" isQuiz />
+        <Blob side="right" isQuiz />
 
         {quiz.map((data, index) => (
           <Question
