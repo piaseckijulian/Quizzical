@@ -16,7 +16,7 @@ export const QuizInfo = ({ allCorrectAnswers }: Props) => {
   const router = useRouter()
   const [score, setScore] = useState(0)
 
-  // Disabled if some questions still not answered
+  // Disabled if some questions are still not answered
   const isCheckAnswersBtnDisabled = userAnswers.some((answer) => !answer)
 
   useEffect(() => {
