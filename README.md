@@ -24,15 +24,38 @@ Quizzical is a fun and easy-to-use trivia quiz app where you can test your knowl
 - He
 - Clsx
 
-## ✨ Usage
+## ✨ Quick Start
+
+Here’s how to set up the project on your local machine.
+
+**Prerequisites**
+
+Ensure that the following are installed on your machine:
+
+- [Git](https://git-scm.com)
+- [Node.js](https://nodejs.org/en)
+- [pnpm](https://pnpm.io)
+
+**Cloning the Repository**
 
 ```bash
 git clone https://github.com/piaseckijulian/Quizzical.git
 cd Quizzical
+```
+
+**Installation**
+
+```bash
+pnpm i
+```
+
+**Running the Project**
+
+```bash
 pnpm dev
 ```
 
-That's it! - You're good to go. You can add new features, fix bugs etc.
+That's it! - You're good to go. The projest should be live on http://localhost:3000
 
 ## 🌐 License
 
