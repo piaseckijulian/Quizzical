@@ -63,4 +63,4 @@ This software is licensed under the [MIT License](https://github.com/piaseckijul
 
 ## ⭐ Credits
 
-This is the Final Solo Project of [Bob Ziroll's](https://twitter.com/bobziroll) [React Course](https://scrimba.com/learn/learnreact)
+This is the Final Solo Project of [Bob Ziroll's](https://x.com/bobziroll) [React Course](https://scrimba.com/learn/learnreact)
