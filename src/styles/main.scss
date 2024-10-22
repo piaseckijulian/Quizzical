@@ -1,5 +1,4 @@
-@import './variables';
-@import './resets';
-@import './utils';
-@import './home';
-@import './quiz';
+@use "resets";
+@use "utils";
+@use "home";
+@use "quiz";

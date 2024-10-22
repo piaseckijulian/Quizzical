@@ -1,3 +1,5 @@
+@use "variables";
+
 .quiz {
   &__loading {
     display: flex;
@@ -43,7 +45,7 @@
     height: 0.3rem;
     border: none;
     margin-bottom: 3rem;
-    background-color: $line-clr;
+    background-color: variables.$line-clr;
   }
 
   .answers {
@@ -67,7 +69,7 @@
 
       padding: 1rem 2rem;
       margin: 0 0 2.6rem 0;
-      border: 0.3rem solid $primary;
+      border: 0.3rem solid variables.$primary;
       border-radius: 2rem;
 
       font-size: 2.4rem;
@@ -83,12 +85,12 @@
       }
 
       &:hover {
-        background-color: $answer-hover;
+        background-color: variables.$answer-hover;
       }
 
       &:has(input[type="radio"]:checked) {
-        background-color: $answer-checked;
-        border: 3px solid $answer-checked;
+        background-color: variables.$answer-checked;
+        border: 3px solid variables.$answer-checked;
       }
 
       &:has(input[type="radio"]:focus-visible) {
@@ -103,11 +105,11 @@
     }
 
     .correct {
-      background-color: $correct !important;
+      background-color: variables.$correct !important;
     }
 
     .wrong {
-      background-color: $wrong !important;
+      background-color: variables.$wrong !important;
     }
 
     .neutral:hover {
