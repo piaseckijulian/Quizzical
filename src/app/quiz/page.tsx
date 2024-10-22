@@ -5,18 +5,19 @@ import { Question } from "./question"
 import { QuizInfo } from "./quiz-info"
 
 type Props = {
-  searchParams: {
-    category: string
-  }
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
 const QuizPage = async ({ searchParams }: Props) => {
-  const category = Number.parseInt(searchParams.category)
-  if (Number.isNaN(category)) {
+  const category = (await searchParams).category
+
+  if (!category || Number.isNaN(category) || Array.isArray(category)) {
     redirect("/")
   }
 
-  const { quiz, error } = await getQuiz(category)
+  const categoryAsNumber = Number.parseInt(category)
+
+  const { quiz, error } = await getQuiz(categoryAsNumber)
 
   if (error || !quiz) {
     redirect("/")
