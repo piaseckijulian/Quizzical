@@ -37,7 +37,7 @@ importers:
         version: 2.5.5
       zustand:
         specifier: ^5.0.0
-        version: 5.0.1(@types/react@18.3.13)(react@19.0.0-rc-fb9a90fa48-20240614)(use-sync-external-store@1.2.2(react@19.0.0-rc-fb9a90fa48-20240614))
+        version: 5.0.2(@types/react@18.3.13)(react@19.0.0-rc-fb9a90fa48-20240614)(use-sync-external-store@1.2.2(react@19.0.0-rc-fb9a90fa48-20240614))
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.8.3
@@ -1093,8 +1093,8 @@ packages:
     resolution: {integrity: sha512-b4JR1PFR10y1mKjhHY9LaGo6tmrgjit7hxVIeAmyMw3jegXR4dhYqLaQF5zMXZxY7tLpMyJeLjr1C4rLmkVe8g==}
     engines: {node: '>=12.20'}
 
-  zustand@5.0.1:
-    resolution: {integrity: sha512-pRET7Lao2z+n5R/HduXMio35TncTlSW68WsYBq2Lg1ASspsNGjpwLAsij3RpouyV6+kHMwwwzP0bZPD70/Jx/w==}
+  zustand@5.0.2:
+    resolution: {integrity: sha512-8qNdnJVJlHlrKXi50LDqqUNmUbuBjoKLrYQBnoChIbVph7vni+sY+YpvdjXG9YLd/Bxr6scMcR+rm5H3aSqPaw==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
       '@types/react': '>=18.0.0'
@@ -1995,7 +1995,7 @@ snapshots:
 
   yocto-queue@1.1.1: {}
 
-  zustand@5.0.1(@types/react@18.3.13)(react@19.0.0-rc-fb9a90fa48-20240614)(use-sync-external-store@1.2.2(react@19.0.0-rc-fb9a90fa48-20240614)):
+  zustand@5.0.2(@types/react@18.3.13)(react@19.0.0-rc-fb9a90fa48-20240614)(use-sync-external-store@1.2.2(react@19.0.0-rc-fb9a90fa48-20240614)):
     optionalDependencies:
       '@types/react': 18.3.13
       react: 19.0.0-rc-fb9a90fa48-20240614
