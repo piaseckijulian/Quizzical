@@ -17,8 +17,8 @@
     "axios": "^1.7.2",
     "he": "^1.2.0",
     "next": "^15.0.0",
-    "react": "19.0.0-rc-fb9a90fa48-20240614",
-    "react-dom": "19.0.0-rc-fb9a90fa48-20240614",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "react-loader-spinner": "^6.1.6",
     "tailwind-merge": "^2.3.0",
     "zustand": "^5.0.0"
