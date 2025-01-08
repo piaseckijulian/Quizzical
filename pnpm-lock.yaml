@@ -37,7 +37,7 @@ importers:
         version: 2.6.0
       zustand:
         specifier: ^5.0.0
-        version: 5.0.3(@types/react@19.0.3)(react@19.0.0)(use-sync-external-store@1.2.2(react@19.0.0))
+        version: 5.0.3(@types/react@19.0.4)(react@19.0.0)(use-sync-external-store@1.2.2(react@19.0.0))
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.8.3
@@ -56,10 +56,10 @@ importers:
         version: 22.10.5
       '@types/react':
         specifier: ^19.0.0
-        version: 19.0.3
+        version: 19.0.4
       '@types/react-dom':
         specifier: ^19.0.0
-        version: 19.0.2(@types/react@19.0.3)
+        version: 19.0.2(@types/react@19.0.4)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -475,8 +475,8 @@ packages:
     peerDependencies:
       '@types/react': ^19.0.0
 
-  '@types/react@19.0.3':
-    resolution: {integrity: sha512-UavfHguIjnnuq9O67uXfgy/h3SRJbidAYvNjLceB+2RIKVRBzVsh0QO+Pw6BCSQqFS9xwzKfwstXx0m6AbAREA==}
+  '@types/react@19.0.4':
+    resolution: {integrity: sha512-3O4QisJDYr1uTUMZHA2YswiQZRq+Pd8D+GdVFYikTutYsTz+QZgWkAPnP7rx9txoI6EXKcPiluMqWPFV3tT9Wg==}
 
   '@types/stylis@4.2.5':
     resolution: {integrity: sha512-1Xve+NMN7FWjY14vLoY5tL3BVEQ/n42YLwaqJIPYhotZ9uBHt87VceMwWQpzmdEt2TNXIorIFG+YeCUUW7RInw==}
@@ -1456,11 +1456,11 @@ snapshots:
     dependencies:
       undici-types: 6.20.0
 
-  '@types/react-dom@19.0.2(@types/react@19.0.3)':
+  '@types/react-dom@19.0.2(@types/react@19.0.4)':
     dependencies:
-      '@types/react': 19.0.3
+      '@types/react': 19.0.4
 
-  '@types/react@19.0.3':
+  '@types/react@19.0.4':
     dependencies:
       csstype: 3.1.3
 
@@ -1991,8 +1991,8 @@ snapshots:
 
   yocto-queue@1.1.1: {}
 
-  zustand@5.0.3(@types/react@19.0.3)(react@19.0.0)(use-sync-external-store@1.2.2(react@19.0.0)):
+  zustand@5.0.3(@types/react@19.0.4)(react@19.0.0)(use-sync-external-store@1.2.2(react@19.0.0)):
     optionalDependencies:
-      '@types/react': 19.0.3
+      '@types/react': 19.0.4
       react: 19.0.0
       use-sync-external-store: 1.2.2(react@19.0.0)
